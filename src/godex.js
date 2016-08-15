@@ -7,9 +7,9 @@ var dex = (function() {
   // simple function to clean keys
   var key = function(string) {
     return string
-      .replaceAll(".", "")
-      .replaceAll(" ", "-")
-      .replaceAll("'", "")
+      .replace(".", "")
+      .replace(" ", "-")
+      .replace("'", "")
       .toLowerCase();
   };
 
@@ -39,9 +39,9 @@ var dex = (function() {
       for (x in toLoop) {
         for (var i = 0;i < type[x].length;i++) {
           var key = toLoop[x],
-            target = type[x],
+            target = type[x][i],
             score = pokemon[key][target];
-          if (key.indexOf("half") > -1) {
+          if (x.indexOf("half") > -1) {
             // if a score isn't assigned, we assign it the score
             if (!score) pokemon[key][target] = 0.8;
             else pokemon[key][target] *= 0.8;
@@ -264,6 +264,8 @@ var dex = (function() {
     getType: getType,
     list: list,
     byType: byType,
-    gym: gym
+    gym: gym,
+    aZ: [ "A","B","C","D","E","F","G","H","I","J","K",
+        "L","M","N","O","P","R","S","T","V","W","Z" ]
   };
 })();
