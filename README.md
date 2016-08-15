@@ -17,7 +17,13 @@ $ gulp
 ---
 
 ### Setup
- Add `<script src="/path/to/godex.min.js"></script>` before your other scripts in your HTML.
+```
+$ cd your/app/directory
+$ bower install godex --save
+```
+Alternatively, download the repo and use the files that way!
+
+Add `<script src="/path/to/godex.min.js"></script>` before your other scripts in your HTML.
 
 ---
 
