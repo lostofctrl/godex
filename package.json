@@ -1,0 +1,29 @@
+{
+  "name": "godex",
+  "version": "0.0.1",
+  "description": "Javascript Library for Pokemon Go",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/yayramen/godex.git"
+  },
+  "keywords": [
+    "pogo",
+    "pokemon go",
+    "pokemongo"
+  ],
+  "author": "yayramen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yayramen/godex/issues"
+  },
+  "homepage": "https://github.com/yayramen/godex#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-minify": "0.0.14"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "godex",
+  "description": "Javascript Library for Pokemon Go",
+  "main": "godex.js",
+  "authors": [
+    "yayramen"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "pogo",
+    "pokemon",
+    "go",
+    "pokemongo"
+  ],
+  "homepage": "https://github.com/yayramen/godex",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
