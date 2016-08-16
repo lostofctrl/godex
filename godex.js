@@ -1350,7 +1350,7 @@ godex.types = {
   a javascript library for pokemon go
 */
 
-var dex = (function() {
+(function(godex) {
   // simple function to clean keys
   var key = function(string) {
     return string
@@ -1431,18 +1431,6 @@ var dex = (function() {
     return result;
   };
 
-  // Get a list of pokemon
-  var list = function(alpha) {
-    var result = [];
-    for (var x in godex.pokemon) {
-      result.push({
-        key: x,
-        name: godex.pokemon[x].name
-      });
-    }
-    return result;
-  };
-
   // Get Pokemon by type
   var byType = function(search) {
     var result = [];
@@ -1454,6 +1442,18 @@ var dex = (function() {
           name: poke.name
         });
       }
+    }
+    return result;
+  };
+
+  // Get a list of pokemon
+  var list = function(alpha) {
+    var result = [];
+    for (var x in godex.pokemon) {
+      result.push({
+        key: x,
+        name: godex.pokemon[x].name
+      });
     }
     return result;
   };
@@ -1605,14 +1605,20 @@ var dex = (function() {
     }
   };
 
-  // return the Library
-  return {
+  // define the Library
+  var dex = {
     get: get,
     getType: getType,
-    list: list,
     byType: byType,
+    list: list,
     gym: gym,
     aZ: [ "A","B","C","D","E","F","G","H","I","J","K",
         "L","M","N","O","P","R","S","T","V","W","Z" ]
   };
-})();
+
+  // Export to node or the browser, whichever is being used!
+  if (typeof module !== 'undefined' && typeof module.exports !== 'undefined')
+    module.exports = dex;
+  else
+    window.dex = dex;
+})(godex || {});

@@ -3,7 +3,7 @@
   a javascript library for pokemon go
 */
 
-var dex = (function() {
+(function(godex) {
   // simple function to clean keys
   var key = function(string) {
     return string
@@ -258,8 +258,8 @@ var dex = (function() {
     }
   };
 
-  // return the Library
-  return {
+  // define the Library
+  var dex = {
     get: get,
     getType: getType,
     byType: byType,
@@ -268,4 +268,10 @@ var dex = (function() {
     aZ: [ "A","B","C","D","E","F","G","H","I","J","K",
         "L","M","N","O","P","R","S","T","V","W","Z" ]
   };
-})();
+
+  // Export to node or the browser, whichever is being used!
+  if (typeof module !== 'undefined' && typeof module.exports !== 'undefined')
+    module.exports = dex;
+  else
+    window.dex = dex;
+})(godex || {});

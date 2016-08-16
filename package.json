@@ -2,9 +2,9 @@
   "name": "godex",
   "version": "0.0.1",
   "description": "Javascript Library for Pokemon Go",
-  "main": "gulpfile.js",
+  "main": "godex.js",
   "scripts": {
-    "test": "gulp"
+    "test": "node godex.js"
   },
   "repository": {
     "type": "git",
