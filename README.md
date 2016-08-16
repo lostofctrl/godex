@@ -16,14 +16,32 @@ $ gulp
 
 ---
 
-### Setup
+### Install
+##### Bower   
 ```
 $ cd your/app/directory
 $ bower install godex --save
 ```
+##### NPM
+```
+$ cd your/app/directory
+$ npm install godex --save
+```
+##### Download
 Alternatively, download the repo and use the files that way!
 
-Add `<script src="/path/to/godex.min.js"></script>` before your other scripts in your HTML.
+---
+
+### Useage
+
+##### Browser
+`
+<script src="/path/to/godex.min.js"></script>
+`  
+Add script before your other scripts in your HTML. Exports as `dex`.
+
+##### Node
+`var dex = require('godex');`
 
 ---
 
