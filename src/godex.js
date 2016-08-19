@@ -57,6 +57,18 @@
     return pokemon;
   };
 
+  // Add extra data to a move
+  var buildMove = function(move) {
+    var dps = function(attack, mod) {
+      return Math.round((attack / mod) * 100) / 100;
+    };
+    move.offenseDPS = dps(move.attack, move.cooldown);
+    if (!move.charge) {
+      move.defenseDPS = dps(move.attack, move.cooldown + 2);
+    }
+    return move;
+  };
+
   // Fetch a pokemon
   var get = function(search) {
     var result = false;
@@ -81,6 +93,16 @@
     if (godex.types[search]) {
       result = godex.types[search];
     }
+    return result;
+  };
+
+  // Fetch a move
+  var getMove = function(search) {
+    var result = false;
+    if (godex.moves[search]) {
+      result = godex.moves[search];
+    }
+    if (result) result = buildMove(result);
     return result;
   };
 
@@ -262,6 +284,7 @@
   var dex = {
     get: get,
     getType: getType,
+    getMove: getMove,
     byType: byType,
     list: list,
     gym: gym,

@@ -52,6 +52,10 @@ Search by key for best results: `Mr. Mime` becomes `mr-mime`
 
 ##### `dex.getType('bug')`
 Returns type object. Contains effectiveness details.
+Search by key for best results: `Mr. Mime` becomes `mr-mime`
+
+##### `dex.getMovee('Twister')`
+Returns move object. Contains damage/charges/cooldown/dodge window
 
 ##### `dex.list(alpha)`
 Retuns a basic list of all Pokemon names. `alpha = true` to alphebetize.
