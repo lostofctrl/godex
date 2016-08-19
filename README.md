@@ -35,9 +35,9 @@ Alternatively, download the repo and use the files that way!
 ### Useage
 
 ##### Browser
-`
+```
 <script src="/path/to/godex.min.js"></script>
-`  
+```
 Add script before your other scripts in your HTML. Exports as `dex`.
 
 ##### Node
