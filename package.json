@@ -4,7 +4,7 @@
   "description": "Javascript Library for Pokemon Go",
   "main": "godex.js",
   "scripts": {
-    "test": "node godex.js"
+    "test": "node testing.js"
   },
   "repository": {
     "type": "git",
