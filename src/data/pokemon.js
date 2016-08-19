@@ -76,7 +76,7 @@ godex.pokemon = {
     name: "Squirtle",
     type: ["water"],
     quickMoves: ["bubble", "tackle"],
-    chargeMoves: ["aqua-jet", "aqua-pulse", "aqua-tail"],
+    chargeMoves: ["aqua-jet", "aqua-tail", "water-pulse"],
     evolveTo: "wartortle"
   },
   "wartortle": {

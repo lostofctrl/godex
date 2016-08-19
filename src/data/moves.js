@@ -153,7 +153,7 @@ godex.moves.quick = {
     attack: 7,
     cooldown: 0.54
   },
-  "pyscho-cut": {
+  "psycho-cut": {
     name: "Psycho Cut",
     type: "psychic",
     attack: 7,
