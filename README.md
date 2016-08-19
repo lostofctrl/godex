@@ -47,12 +47,11 @@ Add script before your other scripts in your HTML. Exports as `dex`.
 
 ### Methods
 ##### `dex.get('Bulbasaur')`
-Returns Pokemon object. Search by name. For Nidoran, use `f` and `m` in place of gender markers.
+Returns Pokemon object. Search by name. For Nidoran, use `f` and `m` in place of gender markers.   
 Search by key for best results: `Mr. Mime` becomes `mr-mime`
 
 ##### `dex.getType('bug')`
 Returns type object. Contains effectiveness details.
-Search by key for best results: `Mr. Mime` becomes `mr-mime`
 
 ##### `dex.getMove('Twister')`
 Returns move object. Contains damage/charges/cooldown/dodge window
@@ -91,3 +90,15 @@ Returns the offensive capabilities of the gym. `sort = true` to reverse
 
 ##### `gym.defense(sort)`
 Returns the defensive capabilities of the gym. `sort = true` to reverse
+
+---
+
+### Contribute
+
+Fork me, open up a pull request, shoot me an email - me [at] yayramen.com - I'd love the help!
+
+---
+
+### Built with godex
+
+- [pogoto](http://pogo.to) - gym information tool
