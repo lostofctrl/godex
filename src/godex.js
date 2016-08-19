@@ -90,8 +90,8 @@
   // Fetch a type
   var getType = function(search) {
     var result = false;
-    if (godex.types[search]) {
-      result = godex.types[search];
+    if (godex.types[key(search)]) {
+      result = godex.types[key(search)];
     }
     return result;
   };
@@ -99,11 +99,11 @@
   // Fetch a move
   var getMove = function(search) {
     var result = false;
-    if (godex.moves.quick[search]) {
-      result = godex.moves.quick[search];
+    if (godex.moves.quick[key(search)]) {
+      result = godex.moves.quick[key(search)];
     }
-    if (godex.moves.charge[search]) {
-      result = godex.moves.charge[search];
+    if (godex.moves.charge[key(search)]) {
+      result = godex.moves.charge[key(search)];
     }
     if (result) result = buildMove(result);
     return result;
