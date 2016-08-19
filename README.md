@@ -60,6 +60,12 @@ Returns move object. Contains damage/charges/cooldown/dodge window
 ##### `dex.list(alpha)`
 Retuns a basic list of all Pokemon names. `alpha = true` to alphebetize.
 
+##### `dex.listTypes(alpha)`
+Retuns a basic list of all Pokemon types. `alpha = true` to alphebetize.
+
+##### `dex.listMoves(alpha)`
+Retuns a basic list of all Pokemon moves. `alpha = true` to alphebetize.
+
 ##### `dex.byType('poison')`
 Retuns a list of all pokemon with a given type.
 

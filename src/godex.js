@@ -136,6 +136,38 @@
     return result;
   };
 
+  // Get a list of types
+  var listTypes = function(alpha) {
+    var result = [];
+    for (var x in godex.types) {
+      result.push({
+        key: x,
+        name: godex.types[x].name
+      });
+    }
+    return result;
+  };
+
+  // Get a list of moves
+  var listMoves = function(alpha) {
+    var x, result = [];
+    for (x in godex.moves.quick) {
+      result.push({
+        key: x,
+        type: 'quick',
+        name: godex.moves.quick[x].name
+      });
+    }
+    for (x in godex.moves.charge) {
+      result.push({
+        key: x,
+        type: 'charge',
+        name: godex.moves.charge[x].name
+      });
+    }
+    return result;
+  };
+
   // Allow for a collection
   // of pokemon, a "Gym"
   var gym = function() {
@@ -290,6 +322,8 @@
     getMove: getMove,
     byType: byType,
     list: list,
+    listTypes: listTypes,
+    listMoves: listMoves,
     gym: gym,
     aZ: [ "A","B","C","D","E","F","G","H","I","J","K",
         "L","M","N","O","P","R","S","T","V","W","Z" ]
