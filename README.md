@@ -95,7 +95,7 @@ Returns the defensive capabilities of the gym. `sort = true` to reverse
 
 ### Contribute
 
-Fork me, open up a pull request, shoot me an email - me [at] yayramen.com - I'd love the help!
+Fork me and open up a pull request, or just shoot me an email - me [at] yayramen.com - I'd love the help!
 
 ---
 
