@@ -133,6 +133,11 @@
         name: godex.pokemon[x].name
       });
     }
+    if (alpha) {
+      result.sort(function(a,b) {
+        return a.name - b.name;
+      });
+    }
     return result;
   };
 
@@ -143,6 +148,11 @@
       result.push({
         key: x,
         name: godex.types[x].name
+      });
+    }
+    if (alpha) {
+      result.sort(function(a,b) {
+        return a.name - b.name;
       });
     }
     return result;
@@ -163,6 +173,11 @@
         key: x,
         type: 'charge',
         name: godex.moves.charge[x].name
+      });
+    }
+    if (alpha) {
+      result.sort(function(a,b) {
+        return a.name - b.name;
       });
     }
     return result;
