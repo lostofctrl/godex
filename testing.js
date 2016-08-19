@@ -95,6 +95,24 @@ for (var _p in pokemon) {
         isGood = false;
       }
     }
+    // test quick moves
+    for (var _q in poke.quickMoves) {
+      var quick = dex.getMove(poke.quickMoves[_q]);
+      if (!quick) {
+        if (!ePoke[key]) ePoke[key] = [];
+        ePoke[key].push(poke.name + " Quick Move Error: " + poke.quickMoves[_q]);
+        isGood = false;
+      }
+    }
+    // test charge moves
+    for (var _c in poke.chargeMoves) {
+      var charge = dex.getMove(poke.chargeMoves[_c]);
+      if (!charge) {
+        if (!ePoke[key]) ePoke[key] = [];
+        ePoke[key].push(poke.name + " Charge Move Error: " + poke.chargeMoves[_c]);
+        isGood = false;
+      }
+    }
   }
 
   if (!isGood) {
