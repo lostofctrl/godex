@@ -54,7 +54,7 @@ Search by key for best results: `Mr. Mime` becomes `mr-mime`
 Returns type object. Contains effectiveness details.
 Search by key for best results: `Mr. Mime` becomes `mr-mime`
 
-##### `dex.getMovee('Twister')`
+##### `dex.getMove('Twister')`
 Returns move object. Contains damage/charges/cooldown/dodge window
 
 ##### `dex.list(alpha)`

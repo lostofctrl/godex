@@ -63,7 +63,7 @@
       return Math.round((attack / mod) * 100) / 100;
     };
     move.offenseDPS = dps(move.attack, move.cooldown);
-    if (!move.charge) {
+    if (!move.charges) {
       move.defenseDPS = dps(move.attack, move.cooldown + 2);
     }
     return move;
@@ -99,8 +99,11 @@
   // Fetch a move
   var getMove = function(search) {
     var result = false;
-    if (godex.moves[search]) {
-      result = godex.moves[search];
+    if (godex.moves.quick[search]) {
+      result = godex.moves.quick[search];
+    }
+    if (godex.moves.charge[search]) {
+      result = godex.moves.charge[search];
     }
     if (result) result = buildMove(result);
     return result;
