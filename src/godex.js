@@ -3,6 +3,17 @@
   a javascript library for pokemon go
 */
 
+// Define Godex [Data]
+var godex = {
+  pokemon: pokemon,
+  types: types,
+  moves: {
+    quick: movesQuick,
+    charge: movesCharge
+  }
+};
+
+// Build and Return Library
 (function(godex) {
   // simple function to clean keys
   var key = function(string) {

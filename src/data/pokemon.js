@@ -3,10 +3,7 @@
   godex - list of pokemon
 */
 
-// merge with godex if exists
-var godex = godex ? godex : {};
-
-godex.pokemon = {
+var pokemon = {
   "bulbasaur": {
     id: 1,
     egg: 2,

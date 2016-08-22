@@ -3,10 +3,7 @@
   godex - list of pokemon types
 */
 
-// merge with godex if exists
-var godex = godex ? godex : {};
-
-godex.types = {
+var types = {
   "bug": {
     name: "Bug",
     twiceTo: ["psychic", "grass", "dark"],
