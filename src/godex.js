@@ -246,7 +246,7 @@
     // Get types not in the gym
     unmodified: function() {
       var result = [];
-      for (var t in types) {
+      for (var t in godex.types) {
         result.push(t);
       }
       // Build an array of ALL THE TYPES
