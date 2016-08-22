@@ -17,12 +17,15 @@ var godex = {
 (function(godex) {
   // simple function to clean keys
   var key = function(string) {
-    return string
-      .replace(".", "")
-      .replace(" ", "-")
-      .replace("'", "")
-      .toLowerCase();
-  };
+      return string
+        .replace(".", "")
+        .replace(" ", "-")
+        .replace("'", "")
+        .toLowerCase();
+    },
+    rnd = function(num) {
+      return Math.round(num * 100) / 100;
+    };
 
   // Add extra data to a pokemon
   var buildPokemon = function(pokemon) {
@@ -55,11 +58,11 @@ var godex = {
           if (x.indexOf("half") > -1) {
             // if a score isn't assigned, we assign it the score
             if (!score) pokemon[key][target] = 0.8;
-            else pokemon[key][target] *= 0.8;
+            else pokemon[key][target] = rnd(pokemon[key][target] * 0.8);
             // but if a score is assigned, multiply it.
           } else {
             if (!score) pokemon[key][target] = 1.25;
-            else pokemon[key][target] *= 1.25;
+            else pokemon[key][target] = rnd(pokemon[key][target] * 1.25);
           }
         }
       }
@@ -70,12 +73,9 @@ var godex = {
 
   // Add extra data to a move
   var buildMove = function(move) {
-    var dps = function(attack, mod) {
-      return Math.round((attack / mod) * 100) / 100;
-    };
-    move.offenseDPS = dps(move.attack, move.cooldown);
+    move.offenseDPS = rnd(move.attack / move.cooldown);
     if (!move.charges) {
-      move.defenseDPS = dps(move.attack, move.cooldown + 2);
+      move.defenseDPS = rnd(move.attack / (move.cooldown + 2));
     }
     return move;
   };
@@ -289,8 +289,7 @@ var godex = {
         }
       }
       for (var type in offense) {
-        var score = offense[type] / this.count;
-        score = Math.round(score * 100) / 100;
+        var score = rnd(offense[type] / this.count);
         result.push({
           name: type,
           score: score
@@ -321,8 +320,7 @@ var godex = {
         }
       }
       for (var type in defense) {
-        var score = defense[type] / this.count;
-        score = Math.round(score * 100) / 100;
+        var score = rnd(defense[type] / this.count);
         result.push({
           name: type,
           score: score
