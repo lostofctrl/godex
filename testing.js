@@ -32,44 +32,57 @@ space(1);
 note("------------TESTING DATA------------");
 space(1);
 
-var pokemon = dex.list(true),
-  types = dex.listTypes(true),
-  moves = dex.listMoves(true);
-
+var pokemon = dex.list(true);
 note("# OF POKEMON: " + pokemon.length, pokemon);
+
+var types = dex.listTypes(true);
 note("# OF POKEMON TYPES: " + types.length, types);
+
+var moves = dex.listMoves(true);
 note("# OF POKEMON MOVES: " + moves.length, moves);
+
 space(2);
-
-
 note("---------VERIFYING: METHODS---------");
 space(1);
 
-var methodData;
+var i, methodData;
 
+note("VERIFYING: dex.get()");
+for (i in pokemon) {
+  methodData = dex.get(i);
+}
+note("CHECKING: dex.get('Bulbasaur')");
 methodData = dex.get('Bulbasaur');
-note("CHECKING: dex.get('Bulbasaur'): " + check(methodData), methodData);
+note("METHOD: dex.get('Bulbasaur'): " + check(methodData), methodData);
 
+
+note("VERIFYING: dex.getType()");
+for (i in types) {
+  methodData = dex.getType(i);
+}
+note("CHECKING: dex.getType('Bug')");
 methodData = dex.getType('Bug');
-note("CHECKING: dex.getType('Bug'): " + check(methodData), methodData);
+note("METHOD: dex.getType('Bug'): " + check(methodData), methodData);
 
+
+note("VERIFYING: dex.getMove()");
+for (i in moves) {
+  methodData = dex.getMove(i);
+}
+note("CHECKING: dex.getMove('Twister')");
 methodData = dex.getMove('Twister');
-note("CHECKING: dex.getMove('Twister'): " + check(methodData), methodData);
+note("METHOD: dex.getMove('Twister'): " + check(methodData), methodData);
 
+
+note("VERIFYING: dex.byType()");
+for (i in types) {
+  methodData = dex.byType(i);
+}
+note("CHECKING: dex.byType('Bug')");
 methodData = dex.byType('Bug');
-note("CHECKING: dex.byType('Bug'): " + check(methodData), methodData);
+note("METHOD: dex.byType('Bug'): " + check(methodData), methodData);
 
-methodData = dex.list(true);
-note("CHECKING: dex.list(true): " + check(methodData), methodData);
-
-methodData = dex.listTypes(true);
-note("CHECKING: dex.listTypes(true): " + check(methodData), methodData);
-
-methodData = dex.listMoves(true);
-note("CHECKING: dex.listMoves(true): " + check(methodData), methodData);
 space(2);
-
-
 note("---------VERIFYING: POKEMON---------");
 space(1);
 
