@@ -7,6 +7,7 @@
 var godex = {
   pokemon: pokemon,
   types: types,
+  levels: levels,
   moves: {
     quick: movesQuick,
     charge: movesCharge
