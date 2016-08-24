@@ -57,16 +57,19 @@ Returns type object. Contains effectiveness details.
 Returns move object. Contains damage/charges/cooldown/dodge window
 
 ##### `dex.list(alpha)`
-Retuns a basic list of all Pokemon names. `alpha = true` to alphebetize.
+Returns a basic list of all Pokemon names. `alpha = true` to alphebetize.
 
 ##### `dex.listTypes(alpha)`
-Retuns a basic list of all Pokemon types. `alpha = true` to alphebetize.
+Returns a basic list of all Pokemon types. `alpha = true` to alphebetize.
 
 ##### `dex.listMoves(alpha)`
-Retuns a basic list of all Pokemon moves. `alpha = true` to alphebetize.
+Returns a basic list of all Pokemon moves. `alpha = true` to alphebetize.
 
 ##### `dex.byType('poison')`
-Retuns a list of all pokemon with a given type.
+Returns a list of all pokemon with a given type.
+
+##### `dex.appraise(Pokemon, CP, HP, Dust Cost, Powered)`
+Return IVs, Grades. `dex.appraise('Aerodactyl', 1495, 113, 3500, true);` 
 
 ---
 
@@ -83,7 +86,7 @@ Removes a pokemon from the gym.
 Returns all the types for the pokemon in the gym
 
 ##### `gym.unmodified()`
-Retuns the types that aren't affected by the gym.
+Returns the types that aren't affected by the gym.
 
 ##### `gym.offense(sort)`
 Returns the offensive capabilities of the gym. `sort = true` to reverse
