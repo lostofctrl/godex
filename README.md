@@ -98,7 +98,20 @@ Returns the defensive capabilities of the gym. `sort = true` to reverse
 
 ### Contribute
 
-Fork me and open up a pull request, or just shoot me an email - me [at] yayramen.com - I'd love the help!
+Fork me and open up a pull request, or just shoot me an email - me [at] yayramen.com - I'd love the help!   
+Version guide: 
+
+- +0.0.1 for patches/minor things
+- +0.1.0 for new feature
+- +1.0.0 for something drastic!
+
+
+---
+
+
+### Contributors
+
+- [xssc](https://github.com/xssc)
 
 ---
 
