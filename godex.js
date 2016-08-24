@@ -4141,7 +4141,14 @@ var godex = {
   // Fetch a pokemon
   var get = function(search) {
     var result = false;
-    if (godex.pokemon[key(search)]) {
+    if (search === parseInt(search, 10) && search <= 151) {
+      // try finding by id
+      for (var x in godex.pokemon) {
+        if (godex.pokemon[x].id == search) {
+          result = godex.pokemon[x];
+        }
+      }
+   }else if (godex.pokemon[key(search)]) {
       // try finding by key
       result = godex.pokemon[key(search)];
     } else {
