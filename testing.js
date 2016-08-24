@@ -51,7 +51,6 @@ note("VERIFYING: dex.get()");
 for (i in pokemon) {
   methodData = dex.get(i);
 }
-note("CHECKING: dex.get('Bulbasaur')");
 methodData = dex.get('Bulbasaur');
 note("METHOD: dex.get('Bulbasaur'): " + check(methodData), methodData);
 
@@ -60,7 +59,6 @@ note("VERIFYING: dex.getType()");
 for (i in types) {
   methodData = dex.getType(i);
 }
-note("CHECKING: dex.getType('Bug')");
 methodData = dex.getType('Bug');
 note("METHOD: dex.getType('Bug'): " + check(methodData), methodData);
 
@@ -69,7 +67,6 @@ note("VERIFYING: dex.getMove()");
 for (i in moves) {
   methodData = dex.getMove(i);
 }
-note("CHECKING: dex.getMove('Twister')");
 methodData = dex.getMove('Twister');
 note("METHOD: dex.getMove('Twister'): " + check(methodData), methodData);
 
@@ -78,9 +75,12 @@ note("VERIFYING: dex.byType()");
 for (i in types) {
   methodData = dex.byType(i);
 }
-note("CHECKING: dex.byType('Bug')");
 methodData = dex.byType('Bug');
 note("METHOD: dex.byType('Bug'): " + check(methodData), methodData);
+
+note("VERIFYING: dex.appraise()");
+methodData = dex.appraise('Aerodactyl', 1495, 113, 3500, true);
+note("METHOD: dex.appraise('Aerodactyl', 1495, 113, 3500, true): " + check(methodData), methodData);
 
 space(2);
 note("---------VERIFYING: POKEMON---------");
