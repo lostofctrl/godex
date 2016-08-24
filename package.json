@@ -1,6 +1,6 @@
 {
   "name": "godex",
-  "version": "1.3",
+  "version": "1.3.0",
   "description": "Javascript Library for Pokemon Go",
   "main": "godex.js",
   "scripts": {
