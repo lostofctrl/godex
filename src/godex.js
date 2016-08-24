@@ -11,7 +11,8 @@ var godex = {
   moves: {
     quick: movesQuick,
     charge: movesCharge
-  }
+  },
+  appraise: appraise
 };
 
 // Build and Return Library
@@ -121,6 +122,17 @@ var godex = {
     return result;
   };
 
+  // Fetch levels by dust
+  var getLevels = function(dust) {
+    var result = [];
+    for (var lvl in godex.levels) {
+      if (godex.levels[lvl].dust == dust) {
+        result[lvl] = godex.levels[lvl];
+      }
+    }
+    return result;
+  };
+
   // Get Pokemon by type
   var byType = function(search) {
     var result = [];
@@ -200,6 +212,25 @@ var godex = {
   var gym = function() {
     this.list = {};
     this.count = 0;
+  };
+
+
+  // Appraise a pokemon
+  var appraise = function(poke, cp, hp, dust, powered) {
+    var pokemon = get(poke);
+    if (!pokemon) return { error: "Pokemon Not Found" };
+    if (!cp) return { error: "CP not entered" };
+    if (!hp) return { error: "HP not entered" };
+    if (!dust) return { error: "Dust not entered" };
+
+    var lvls = getLevels(dust);
+    if (!lvls.length) return { error: "Dust Invalid" };
+
+    return godex.appraise({
+      levels: lvls,
+      pokemon: pokemon,
+      cp:cp, hp:hp, dust:dust, powered:powered
+    });
   };
 
   // Prototype for above collection
@@ -350,6 +381,7 @@ var godex = {
     listTypes: listTypes,
     listMoves: listMoves,
     gym: gym,
+    appraise: appraise,
     aZ: [ "A","B","C","D","E","F","G","H","I","J","K",
         "L","M","N","O","P","R","S","T","V","W","Z" ]
   };
