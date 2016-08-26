@@ -140,6 +140,19 @@ var godex = {
     return result;
   };
 
+  // Fetch dust tiers
+  var getDust = function() {
+    var dusts = [], response = [];
+    for (var lvl in godex.levels) {
+      var dust = godex.levels[lvl].dust;
+      if (dusts.indexOf(dust) < 0) {
+        dusts.push(dust);
+        response.push({ level:lvl, dust:dust });
+      }
+    }
+    return response;
+  };
+
   // Get Pokemon by type
   var byType = function(search) {
     var result = [];
@@ -383,6 +396,7 @@ var godex = {
     get: get,
     getType: getType,
     getMove: getMove,
+    getDust: getDust,
     byType: byType,
     list: list,
     listTypes: listTypes,

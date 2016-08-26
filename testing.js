@@ -70,6 +70,11 @@ for (i in moves) {
 methodData = dex.getMove('Twister');
 note("METHOD: dex.getMove('Twister'): " + check(methodData), methodData);
 
+details = true;
+note("VERIFYING: dex.getDust()");
+methodData = dex.getDust();
+note("METHOD: dex.getDust(): " + check(methodData), methodData);
+details = false;
 
 note("VERIFYING: dex.byType()");
 for (i in types) {
