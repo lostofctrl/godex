@@ -24,7 +24,7 @@ var appraise = function(opt) {
 
   var reappraise = function(atk, def, sta, atkIV, defIV, staIV) {
     if (!atk && !def && !sta) return true;
-    
+
     if (atk && !def && !sta) return (atkIV > defIV && atkIV > staIV);
     if (!atk && def && !sta) return (defIV > atkIV && defIV > staIV);
     if (!atk && !def && sta) return (staIV > atkIV && staIV > defIV);
@@ -46,14 +46,16 @@ var appraise = function(opt) {
       add = function(a,b) {
         return a + b;
       };
-    grades.min = ivs[0].perf;
-    grades.max = ivs[0].perf;
-    for (var _g = 0;_g < ivs.length;_g++) {
-      toGrade.push(ivs[_g].perf);
-      if (ivs[_g].perf > grades.max) grades.max = ivs[_g].perf;
-      if (ivs[_g].perf < grades.min) grades.min = ivs[_g].perf;
+    if (ivs.length) {
+      grades.min = ivs[0].perf;
+      grades.max = ivs[0].perf;
+      for (var _g = 0;_g < ivs.length;_g++) {
+        toGrade.push(ivs[_g].perf);
+        if (ivs[_g].perf > grades.max) grades.max = ivs[_g].perf;
+        if (ivs[_g].perf < grades.min) grades.min = ivs[_g].perf;
+      }
+      grades.avg = toGrade.reduce(add, 0) / toGrade.length;
     }
-    grades.avg = toGrade.reduce(add, 0) / toGrade.length;
     return grades;
   };
 
