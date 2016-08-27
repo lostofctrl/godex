@@ -4247,18 +4247,24 @@ var appraise = function(opt) {
     return cp == parseInt(attack * defense * stamina * scale / 10, 10);
   };
 
-  var reappraise = function(atk, def, sta, atkIV, defIV, staIV) {
-    if (!atk && !def && !sta) return true;
-
-    if (atk && !def && !sta) return (atkIV > defIV && atkIV > staIV);
-    if (!atk && def && !sta) return (defIV > atkIV && defIV > staIV);
-    if (!atk && !def && sta) return (staIV > atkIV && staIV > defIV);
-
-    if (atk && def && !sta) return (atkIV == defIV && atkIV > staIV);
-    if (atk && !def && sta) return (atkIV == staIV && atkIV > defIV);
-    if (!atk && def && sta) return (defIV == staIV && defIV > atkIV);
-
-    if (atk && def && sta) return (atkIV == defIV && atkIV == staIV);
+  var reappraise = function(o) {
+    if (!o.atk && !o.def && !o.sta) {
+      return true;
+    } else if (o.atk && !o.def && !o.sta) {
+      return (o.atkIV > o.defIV && o.atkIV > o.staIV);
+    } else if (!o.atk && o.def && !o.sta) {
+      return (o.defIV > o.atkIV && o.defIV > o.staIV);
+    } else if (!o.atk && !o.def && o.sta) {
+      return (o.staIV > o.atkIV && o.staIV > o.defIV);
+    } else if (o.atk && o.def && !o.sta) {
+      return (o.atkIV == o.defIV && o.atkIV > o.staIV);
+    } else if (o.atk && !o.def && o.sta) {
+      return (o.atkIV == o.staIV && o.atkIV > o.defIV);
+    } else if (!o.atk && o.def && o.sta) {
+      return (o.defIV == o.staIV && o.defIV > o.atkIV);
+    } else if (o.atk && o.def && o.sta) {
+      return (o.atkIV == o.defIV && o.atkIV == o.staIV);
+    }
   };
 
   var howPerf = function(ivs) {
