@@ -1,6 +1,6 @@
 # godex.js
 The godex is a javascript library full of Pokemon Go data.   
-_Note: `v1.3.3` and below will break when upgraded to `v1.4.0`_.  
+_Note: `v1.3.3` and below will break when upgraded to `v1.4.1+`_.  
 _This is due to all get methods being absorbed into `get`_.
 
 ---
