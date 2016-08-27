@@ -4302,7 +4302,7 @@ var appraise = function(opt) {
     for (staIV = 0;staIV <= 15;staIV++) {
       if (testHP(opt.hp, staIV, _lData, opt.pokemon)) {
         hpIVs.push({
-          level: _level,
+          level: _lData.key,
           lvl: _lData,
           iv: staIV
         });
@@ -4462,6 +4462,7 @@ var godex = {
       for (var subtypes in search) {
         var fetch = search[subtypes],
           _data = fetch[subtype];
+        fetch.key = subtypes;
         if (!_data) {
           return { method: "get", err: "Couldn't find subtype: " + subtype };
         }

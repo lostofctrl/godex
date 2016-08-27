@@ -109,6 +109,7 @@ var godex = {
       for (var subtypes in search) {
         var fetch = search[subtypes],
           _data = fetch[subtype];
+        fetch.key = subtypes;
         if (!_data) {
           return { method: "get", err: "Couldn't find subtype: " + subtype };
         }

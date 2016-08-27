@@ -77,7 +77,7 @@ var appraise = function(opt) {
     for (staIV = 0;staIV <= 15;staIV++) {
       if (testHP(opt.hp, staIV, _lData, opt.pokemon)) {
         hpIVs.push({
-          level: _level,
+          level: _lData.key,
           lvl: _lData,
           iv: staIV
         });
