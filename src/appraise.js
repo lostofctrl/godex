@@ -68,7 +68,7 @@ var appraise = function(opt) {
   if (!opt.powered) {
     // If never upgraded, remove half levels
     for (var _l in opt.levels) {
-      if (_l.toString().indexOf(".5") > -1) delete opt.levels[_l];
+      if (opt.levels[_l].key.toString().indexOf(".5") > -1) delete opt.levels[_l];
     }
   }
 
