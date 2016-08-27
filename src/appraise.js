@@ -22,6 +22,20 @@ var appraise = function(opt) {
     return cp == parseInt(attack * defense * stamina * scale / 10, 10);
   };
 
+  var reappraise = function(atk, def, sta, atkIV, defIV, staIV) {
+    if (!atk && !def && !sta) return true;
+    
+    if (atk && !def && !sta) return (atkIV > defIV && atkIV > staIV);
+    if (!atk && def && !sta) return (defIV > atkIV && defIV > staIV);
+    if (!atk && !def && sta) return (staIV > atkIV && staIV > defIV);
+
+    if (atk && def && !sta) return (atkIV == defIV && atkIV > staIV);
+    if (atk && !def && sta) return (atkIV == staIV && atkIV > defIV);
+    if (!atk && def && sta) return (defIV == staIV && defIV > atkIV);
+
+    if (atk && def && sta) return (atkIV == defIV && atkIV == staIV);
+  };
+
   var howPerf = function(ivs) {
     var perf = (ivs.atk + ivs.def + ivs.sta) / 45;
     return Math.floor(perf * 100);
@@ -69,12 +83,14 @@ var appraise = function(opt) {
     for (atkIV = 0;atkIV <= 15;atkIV++) {
       for (defIV = 0;defIV <= 15;defIV++) {
         if (testCP(opt.cp, atkIV, defIV, staIV, _hData.lvl, opt.pokemon)) {
-          potential.push({
-            atk: atkIV,
-            def: defIV,
-            sta: staIV,
-            lvl: _hData.level
-          });
+          if (reappraise(opt.atk, opt.def, opt.sta, atkIV, defIV, staIV)) {
+            potential.push({
+              atk: atkIV,
+              def: defIV,
+              sta: staIV,
+              lvl: _hData.level
+            });
+          }
         }
       }
     }

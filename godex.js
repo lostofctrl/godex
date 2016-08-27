@@ -3981,6 +3981,20 @@ var appraise = function(opt) {
     return cp == parseInt(attack * defense * stamina * scale / 10, 10);
   };
 
+  var reappraise = function(atk, def, sta, atkIV, defIV, staIV) {
+    if (!atk && !def && !sta) return true;
+    
+    if (atk && !def && !sta) return (atkIV > defIV && atkIV > staIV);
+    if (!atk && def && !sta) return (defIV > atkIV && defIV > staIV);
+    if (!atk && !def && sta) return (staIV > atkIV && staIV > defIV);
+
+    if (atk && def && !sta) return (atkIV == defIV && atkIV > staIV);
+    if (atk && !def && sta) return (atkIV == staIV && atkIV > defIV);
+    if (!atk && def && sta) return (defIV == staIV && defIV > atkIV);
+
+    if (atk && def && sta) return (atkIV == defIV && atkIV == staIV);
+  };
+
   var howPerf = function(ivs) {
     var perf = (ivs.atk + ivs.def + ivs.sta) / 45;
     return Math.floor(perf * 100);
@@ -4028,12 +4042,14 @@ var appraise = function(opt) {
     for (atkIV = 0;atkIV <= 15;atkIV++) {
       for (defIV = 0;defIV <= 15;defIV++) {
         if (testCP(opt.cp, atkIV, defIV, staIV, _hData.lvl, opt.pokemon)) {
-          potential.push({
-            atk: atkIV,
-            def: defIV,
-            sta: staIV,
-            lvl: _hData.level
-          });
+          if (reappraise(opt.atk, opt.def, opt.sta, atkIV, defIV, staIV)) {
+            potential.push({
+              atk: atkIV,
+              def: defIV,
+              sta: staIV,
+              lvl: _hData.level
+            });
+          }
         }
       }
     }
@@ -4292,7 +4308,7 @@ var godex = {
 
 
   // Appraise a pokemon
-  var appraise = function(poke, cp, hp, dust, powered) {
+  var appraise = function(poke, cp, hp, dust, powered, tAtk, tDef, tSta) {
     var pokemon = get(poke);
     if (!pokemon) return { error: "Pokemon Not Found" };
     if (!cp) return { error: "CP not entered" };
@@ -4305,7 +4321,8 @@ var godex = {
     return godex.appraise({
       levels: lvls,
       pokemon: pokemon,
-      cp:cp, hp:hp, dust:dust, powered:powered
+      cp:cp, hp:hp, dust:dust, powered:powered,
+      atk: tAtk, def: tDef, sta: tSta
     });
   };
 

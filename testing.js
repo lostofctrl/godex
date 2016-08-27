@@ -84,8 +84,8 @@ methodData = dex.byType('Bug');
 note("METHOD: dex.byType('Bug'): " + check(methodData), methodData);
 
 note("VERIFYING: dex.appraise()");
-methodData = dex.appraise('Aerodactyl', 1495, 113, 3500, true);
-note("METHOD: dex.appraise('Aerodactyl', 1495, 113, 3500, true): " + check(methodData), methodData);
+methodData = dex.appraise('Aerodactyl', 1495, 113, 3500, true, false, true, false);
+note("METHOD: dex.appraise('Aerodactyl', 1495, 113, 3500, true, false, true, false): " + check(methodData), methodData);
 
 space(2);
 note("---------VERIFYING: POKEMON---------");

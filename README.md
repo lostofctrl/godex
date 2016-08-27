@@ -68,8 +68,9 @@ Returns a basic list of all Pokemon moves. `alpha = true` to alphebetize.
 ##### `dex.byType('poison')`
 Returns a list of all pokemon with a given type.
 
-##### `dex.appraise(Pokemon, CP, HP, Dust Cost, Powered)`
-Return IVs, Grades. `dex.appraise('Aerodactyl', 1495, 113, 3500, true);` 
+##### `dex.appraise(Pokemon, CP, HP, Dust Cost, Powered, StrongAtk, StrongDef, StrongHP)`
+Return IVs, Grades. `dex.appraise('Aerodactyl', 1495, 113, 3500, true, false, true, false);`  
+Strong Attack, Strong Defense, and Strong HP is what your team's trainer appraises as the highest stat. Takes true/false. I will write up a better readme later.
 
 ---
 
@@ -99,7 +100,7 @@ Returns the defensive capabilities of the gym. `sort = true` to reverse
 ### Contribute
 
 Fork me and open up a pull request, or just shoot me an email - me [at] yayramen.com - I'd love the help!   
-Version guide: 
+Version guide:
 
 - +0.0.1 for patches/minor things
 - +0.1.0 for new feature

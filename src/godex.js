@@ -236,7 +236,7 @@ var godex = {
 
 
   // Appraise a pokemon
-  var appraise = function(poke, cp, hp, dust, powered) {
+  var appraise = function(poke, cp, hp, dust, powered, tAtk, tDef, tSta) {
     var pokemon = get(poke);
     if (!pokemon) return { error: "Pokemon Not Found" };
     if (!cp) return { error: "CP not entered" };
@@ -249,7 +249,8 @@ var godex = {
     return godex.appraise({
       levels: lvls,
       pokemon: pokemon,
-      cp:cp, hp:hp, dust:dust, powered:powered
+      cp:cp, hp:hp, dust:dust, powered:powered,
+      atk: tAtk, def: tDef, sta: tSta
     });
   };
 
