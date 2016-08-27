@@ -1,5 +1,7 @@
 # godex.js
-The godex is a javascript library full of Pokemon Go data.
+The godex is a javascript library full of Pokemon Go data.   
+_Note: `v1.3.3` and below will break when upgraded to `v1.4.0`_.  
+_This is due to all get methods being absorbed into `get`_.
 
 ---
 
@@ -46,31 +48,45 @@ Add script before your other scripts in your HTML. Exports as `dex`.
 ---
 
 ### Methods
-##### `dex.get('Bulbasaur')`
-Returns Pokemon object. Search by name. For Nidoran, use `f` and `m` in place of gender markers.   
-Search by key for best results: `Mr. Mime` becomes `mr-mime`
+_Variables passed in [] are optional._
 
-##### `dex.getType('bug')`
-Returns type object. Contains effectiveness details.
+##### `dex.get([location], thing)`
+This is the master fetch function. It will get you anything! You can pass a pokemon id, name, or key to get a pokemon. Alternatively, specify the thing you're looking for to retrieve that as well. You can also use the "all" specifier to retrieve all of whatever it is you're looking for.
 
-##### `dex.getMove('Twister')`
-Returns move object. Contains damage/charges/cooldown/dodge window
+```
+// Fetch pokemon
+dex.get("Bulbasaur");
+dex.get(1);
+dex.get("1");
+dex.get(001);
+dex.get("001");
 
-##### `dex.list(alpha)`
-Returns a basic list of all Pokemon names. `alpha = true` to alphebetize.
+// Fetch other data
+dex.get("type", "bug");
+dex.get("move", "Twister");
 
-##### `dex.listTypes(alpha)`
-Returns a basic list of all Pokemon types. `alpha = true` to alphebetize.
+// Fetch nested data!
+dex.get("pokemon.type", "bug");
 
-##### `dex.listMoves(alpha)`
-Returns a basic list of all Pokemon moves. `alpha = true` to alphebetize.
+// Note: nested data only works
+// if the subproperty exists!!
+```
 
-##### `dex.byType('poison')`
-Returns a list of all pokemon with a given type.
+##### `dex.appraise(options)`   
+This method returns the IV's of your pokemon!
 
-##### `dex.appraise(Pokemon, CP, HP, Dust Cost, Powered, StrongAtk, StrongDef, StrongHP)`
-Return IVs, Grades. `dex.appraise('Aerodactyl', 1495, 113, 3500, true, false, true, false);`  
-Strong Attack, Strong Defense, and Strong HP is what your team's trainer appraises as the highest stat. Takes true/false. I will write up a better readme later.
+```
+dex.appraise({
+  pokemon: 'Aerodactyl',
+  cp: 1495,
+  hp: 113,
+  dust: 3500,
+  powered: true,    // powered up?
+  strongAtk: false, // Gym Leader says "x" is
+  strongDef: true,  // your poke's best stat,
+  strongHP: false   // send that as true.
+})
+```
 
 ---
 
