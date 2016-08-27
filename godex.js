@@ -328,10 +328,299 @@ var levels = {
   data garnered from pokemongo.gamepress.gg
 */
 
-var movesCharge = {
+var moves = {
+  // quick moves
+  "acid": {
+    name: "Acid",
+    moveType: "quick",
+    type: "poison",
+    attack: 10,
+    cooldown: 1.05
+  },
+  "bite": {
+    name: "Bite",
+    moveType: "quick",
+    type: "dark",
+    attack: 6,
+    cooldown: 0.5
+  },
+  "bubble": {
+    name: "Bubble",
+    moveType: "quick",
+    type: "water",
+    attack: 25,
+    cooldown: 2.3
+  },
+  "bug-bite": {
+    name: "Bug Bite",
+    moveType: "quick",
+    type: "bug",
+    attack: 5,
+    cooldown: 0.45
+  },
+  "bullet-punch": {
+    name: "Bullet Punch",
+    moveType: "quick",
+    type: "steel",
+    attack: 10,
+    cooldown: 1.2
+  },
+  "confusion": {
+    name: "Confusion",
+    moveType: "quick",
+    type: "psychic",
+    attack: 15,
+    cooldown: 1.51
+  },
+  "cut": {
+    name: "Cut",
+    moveType: "quick",
+    type: "normal",
+    attack: 12,
+    cooldown: 1.13
+  },
+  "dragon-breath": {
+    name: "Dragon Breath",
+    moveType: "quick",
+    type: "dragon",
+    attack: 6,
+    cooldown: 0.5
+  },
+  "ember": {
+    name: "Ember",
+    moveType: "quick",
+    type: "fire",
+    attack: 10,
+    cooldown: 1.05
+  },
+  "feint-attack": {
+    name: "Feint Attack",
+    moveType: "quick",
+    type: "dark",
+    attack: 12,
+    cooldown: 1.04
+  },
+  "fire-fang": {
+    name: "Fire Fang",
+    moveType: "quick",
+    type: "fire",
+    attack: 10,
+    cooldown: 0.84
+  },
+  "frost-breath": {
+    name: "Frost Breath",
+    moveType: "quick",
+    type: "ice",
+    attack: 9,
+    cooldown: 0.8
+  },
+  "fury-cutter": {
+    name: "Fury Cutter",
+    moveType: "quick",
+    type: "bug",
+    attack: 3,
+    cooldown: 0.4
+  },
+  "ice-shard": {
+    name: "Ice Shard",
+    moveType: "quick",
+    type: "ice",
+    attack: 15,
+    cooldown: 1.4
+  },
+  "karate-chop": {
+    name: "Karate Chop",
+    moveType: "quick",
+    type: "fighting",
+    attack: 6,
+    cooldown: 0.8
+  },
+  "lick": {
+    name: "Lick",
+    moveType: "quick",
+    type: "ghost",
+    attack: 5,
+    cooldown: 0.5
+  },
+  "low-kick": {
+    name: "Low Kick",
+    moveType: "quick",
+    type: "fighting",
+    attack: 5,
+    cooldown: 0.6
+  },
+  "metal-claw": {
+    name: "Metal Claw",
+    moveType: "quick",
+    type: "steel",
+    attack: 8,
+    cooldown: 0.63
+  },
+  "mud-shot": {
+    name: "Mud Shot",
+    moveType: "quick",
+    type: "ground",
+    attack: 6,
+    cooldown: 0.55
+  },
+  "mud-slap": {
+    name: "Mud Slap",
+    moveType: "quick",
+    type: "ground",
+    attack: 15,
+    cooldown: 1.35
+  },
+  "peck": {
+    name: "Peck",
+    moveType: "quick",
+    type: "flying",
+    attack: 10,
+    cooldown: 1.15
+  },
+  "poison-jab": {
+    name: "Poison Jab",
+    moveType: "quick",
+    type: "poison",
+    attack: 12,
+    cooldown: 1.05
+  },
+  "poison-sting": {
+    name: "Poison Sting",
+    moveType: "quick",
+    type: "poison",
+    attack: 6,
+    cooldown: 0.58
+  },
+  "pound": {
+    name: "Pound",
+    moveType: "quick",
+    type: "normal",
+    attack: 7,
+    cooldown: 0.54
+  },
+  "psycho-cut": {
+    name: "Psycho Cut",
+    moveType: "quick",
+    type: "psychic",
+    attack: 7,
+    cooldown: 0.57
+  },
+  "quick-attack": {
+    name: "Quick Attack",
+    moveType: "quick",
+    type: "normal",
+    attack: 10,
+    cooldown: 1.33
+  },
+  "razor-leaf": {
+    name: "Razor Leaf",
+    moveType: "quick",
+    type: "grass",
+    attack: 15,
+    cooldown: 1.45
+  },
+  "rock-smash": {
+    name: "Rock Smash",
+    moveType: "quick",
+    type: "fighting",
+    attack: 15,
+    cooldown: 1.41
+  },
+  "rock-throw": {
+    name: "Rock Throw",
+    moveType: "quick",
+    type: "rock",
+    attack: 12,
+    cooldown: 1.36
+  },
+  "scratch": {
+    name: "Scratch",
+    moveType: "quick",
+    type: "normal",
+    attack: 6,
+    cooldown: 0.5
+  },
+  "shadow-claw": {
+    name: "Shadow Claw",
+    moveType: "quick",
+    type: "ghost",
+    attack: 11,
+    cooldown: 0.95
+  },
+  "spark": {
+    name: "Spark",
+    moveType: "quick",
+    type: "electric",
+    attack: 7,
+    cooldown: 0.7
+  },
+  "splash": {
+    name: "Splash",
+    moveType: "quick",
+    type: "water",
+    attack: 0,
+    cooldown: 1.23
+  },
+  "steel-wing": {
+    name: "Steel Wing",
+    moveType: "quick",
+    type: "steel",
+    attack: 15,
+    cooldown: 1.33
+  },
+  "sucker-punch": {
+    name: "Sucker Punch",
+    moveType: "quick",
+    type: "dark",
+    attack: 7,
+    cooldown: 0.7
+  },
+  "tackle": {
+    name: "Tackle",
+    moveType: "quick",
+    type: "normal",
+    attack: 12,
+    cooldown: 1.1
+  },
+  "thunder-shock": {
+    name: "Thunder Shock",
+    moveType: "quick",
+    type: "electric",
+    attack: 5,
+    cooldown: 0.6
+  },
+  "vine-whip": {
+    name: "Vine Whip",
+    moveType: "quick",
+    type: "grass",
+    attack: 7,
+    cooldown: 0.65
+  },
+  "water-gun": {
+    name: "Water Gun",
+    moveType: "quick",
+    type: "water",
+    attack: 6,
+    cooldown: 0.5
+  },
+  "wing-attack": {
+    name: "Wing Attack",
+    moveType: "quick",
+    type: "flying",
+    attack: 9,
+    cooldown: 0.75
+  },
+  "zen-headbutt": {
+    name: "Zen Headbutt",
+    moveType: "quick",
+    type: "psychic",
+    attack: 12,
+    cooldown: 1.05
+  },
   // charge moves
   "aerial-ace": {
     name: "Aerial Ace",
+    moveType: "charge",
     type: "flying",
     charges: 4,
     cooldown: 2.9,
@@ -341,6 +630,7 @@ var movesCharge = {
   },
   "air-cutter": {
     name: "Air Cutter",
+    moveType: "charge",
     type: "flying",
     charges: 4,
     cooldown: 3.3,
@@ -350,6 +640,7 @@ var movesCharge = {
   },
   "ancient-power": {
     name: "Ancient Power",
+    moveType: "charge",
     type: "rock",
     charges: 4,
     cooldown: 3.6,
@@ -359,6 +650,7 @@ var movesCharge = {
   },
   "aqua-jet": {
     name: "Aqua Jet",
+    moveType: "charge",
     type: "water",
     charges: 5,
     cooldown: 2.35,
@@ -368,6 +660,7 @@ var movesCharge = {
   },
   "aqua-tail": {
     name: "Aqua Tail",
+    moveType: "charge",
     type: "water",
     charges: 2,
     cooldown: 2.35,
@@ -377,6 +670,7 @@ var movesCharge = {
   },
   "blizzard": {
     name: "Blizzard",
+    moveType: "charge",
     type: "ice",
     charges: 1,
     cooldown: 3.9,
@@ -386,6 +680,7 @@ var movesCharge = {
   },
   "body-slam": {
     name: "Body Slam",
+    moveType: "charge",
     type: "normal",
     charges: 2,
     cooldown: 1.56,
@@ -395,6 +690,7 @@ var movesCharge = {
   },
   "bone-club": {
     name: "Bone Club",
+    moveType: "charge",
     type: "ground",
     charges: 4,
     cooldown: 1.6,
@@ -404,6 +700,7 @@ var movesCharge = {
   },
   "brick-break": {
     name: "Brick Break",
+    moveType: "charge",
     type: "fighting",
     charges: 3,
     cooldown: 1.6,
@@ -413,6 +710,7 @@ var movesCharge = {
   },
   "brine": {
     name: "Brine",
+    moveType: "charge",
     type: "water",
     charges: 4,
     cooldown: 2.4,
@@ -422,6 +720,7 @@ var movesCharge = {
   },
   "bubble-beam": {
     name: "Bubble Beam",
+    moveType: "charge",
     type: "water",
     charges: 4,
     cooldown: 2.9,
@@ -431,6 +730,7 @@ var movesCharge = {
   },
   "bug-buzz": {
     name: "Bug Buzz",
+    moveType: "charge",
     type: "bug",
     charges: 2,
     cooldown: 4.25,
@@ -440,6 +740,7 @@ var movesCharge = {
   },
   "bulldoze": {
     name: "Bulldoze",
+    moveType: "charge",
     type: "ground",
     charges: 4,
     cooldown: 3.4,
@@ -449,6 +750,7 @@ var movesCharge = {
   },
   "cross-chop": {
     name: "Cross Chop",
+    moveType: "charge",
     type: "fighting",
     charges: 1,
     cooldown: 2,
@@ -458,6 +760,7 @@ var movesCharge = {
   },
   "cross-poison": {
     name: "Cross Poison",
+    moveType: "charge",
     type: "poison",
     charges: 4,
     cooldown: 1.5,
@@ -467,6 +770,7 @@ var movesCharge = {
   },
   "dark-pulse": {
     name: "Dark Pulse",
+    moveType: "charge",
     type: "dark",
     charges: 3,
     cooldown: 3.5,
@@ -476,6 +780,7 @@ var movesCharge = {
   },
   "dazzling-gleam": {
     name: "Dazzling Gleam",
+    moveType: "charge",
     type: "fairy",
     charges: 3,
     cooldown: 4.2,
@@ -485,6 +790,7 @@ var movesCharge = {
   },
   "dig": {
     name: "Dig",
+    moveType: "charge",
     type: "ground",
     charges: 3,
     cooldown: 5.8,
@@ -494,6 +800,7 @@ var movesCharge = {
   },
   "disarming-voice": {
     name: "Disarming Voice",
+    moveType: "charge",
     type: "fairy",
     charges: 5,
     cooldown: 3.9,
@@ -503,6 +810,7 @@ var movesCharge = {
   },
   "discharge": {
     name: "Discharge",
+    moveType: "charge",
     type: "electric",
     charges: 3,
     cooldown: 2.5,
@@ -512,6 +820,7 @@ var movesCharge = {
   },
   "dragon-claw": {
     name: "Dragon Claw",
+    moveType: "charge",
     type: "dragon",
     charges: 2,
     cooldown: 1.6,
@@ -521,6 +830,7 @@ var movesCharge = {
   },
   "dragon-pulse": {
     name: "Dragon Pulse",
+    moveType: "charge",
     type: "dragon",
     charges: 2,
     cooldown: 3.6,
@@ -530,6 +840,7 @@ var movesCharge = {
   },
   "draining-kiss": {
     name: "Draining Kiss",
+    moveType: "charge",
     type: "fairy",
     charges: 5,
     cooldown: 2.8,
@@ -539,6 +850,7 @@ var movesCharge = {
   },
   "drill-peck": {
     name: "Drill Peck",
+    moveType: "charge",
     type: "flying",
     charges: 3,
     cooldown: 2.7,
@@ -548,6 +860,7 @@ var movesCharge = {
   },
   "drill-run": {
     name: "Drill Run",
+    moveType: "charge",
     type: "ground",
     charges: 3,
     cooldown: 3.4,
@@ -557,6 +870,7 @@ var movesCharge = {
   },
   "earthquake": {
     name: "Earthquake",
+    moveType: "charge",
     type: "ground",
     charges: 1,
     cooldown: 4.2,
@@ -566,6 +880,7 @@ var movesCharge = {
   },
   "fire-blast": {
     name: "Fire Blast",
+    moveType: "charge",
     type: "fire",
     charges: 1,
     cooldown: 4.1,
@@ -575,6 +890,7 @@ var movesCharge = {
   },
   "fire-punch": {
     name: "Fire Punch",
+    moveType: "charge",
     type: "fire",
     charges: 3,
     cooldown: 2.8,
@@ -584,6 +900,7 @@ var movesCharge = {
   },
   "flame-burst": {
     name: "Flame Burst",
+    moveType: "charge",
     type: "fire",
     charges: 4,
     cooldown: 2.1,
@@ -593,6 +910,7 @@ var movesCharge = {
   },
   "flame-charge": {
     name: "Flame Charge",
+    moveType: "charge",
     type: "fire",
     charges: 5,
     cooldown: 3.1,
@@ -602,6 +920,7 @@ var movesCharge = {
   },
   "flame-wheel": {
     name: "Flame Wheel",
+    moveType: "charge",
     type: "fire",
     charges: 4,
     cooldown: 4.6,
@@ -611,6 +930,7 @@ var movesCharge = {
   },
   "flamethrower": {
     name: "Flamethrower",
+    moveType: "charge",
     type: "fire",
     charges: 2,
     cooldown: 2.9,
@@ -620,6 +940,7 @@ var movesCharge = {
   },
   "flash-cannon": {
     name: "Flash Cannon",
+    moveType: "charge",
     type: "steel",
     charges: 3,
     cooldown: 3.9,
@@ -629,6 +950,7 @@ var movesCharge = {
   },
   "gunk-shot": {
     name: "Gunk Shot",
+    moveType: "charge",
     type: "poison",
     charges: 1,
     cooldown: 3,
@@ -638,6 +960,7 @@ var movesCharge = {
   },
   "heat-wave": {
     name: "Heat Wave",
+    moveType: "charge",
     type: "fire",
     charges: 1,
     cooldown: 3.8,
@@ -647,6 +970,7 @@ var movesCharge = {
   },
   "horn-attack": {
     name: "Horn Attack",
+    moveType: "charge",
     type: "normal",
     charges: 4,
     cooldown: 2.2,
@@ -656,6 +980,7 @@ var movesCharge = {
   },
   "hurricane": {
     name: "Hurricane",
+    moveType: "charge",
     type: "flying",
     charges: 1,
     cooldown: 3.2,
@@ -665,6 +990,7 @@ var movesCharge = {
   },
   "hydro-pump": {
     name: "Hydro Pump",
+    moveType: "charge",
     type: "water",
     charges: 1,
     cooldown: 3.8,
@@ -674,6 +1000,7 @@ var movesCharge = {
   },
   "hyper-beam": {
     name: "Hyper Beam",
+    moveType: "charge",
     type: "normal",
     charges: 1,
     cooldown: 5,
@@ -683,6 +1010,7 @@ var movesCharge = {
   },
   "hyper-fang": {
     name: "Hyper Fang",
+    moveType: "charge",
     type: "normal",
     charges: 3,
     cooldown: 2.1,
@@ -692,6 +1020,7 @@ var movesCharge = {
   },
   "ice-beam": {
     name: "Ice Beam",
+    moveType: "charge",
     type: "ice",
     charges: 2,
     cooldown: 3.65,
@@ -701,6 +1030,7 @@ var movesCharge = {
   },
   "ice-punch": {
     name: "Ice Punch",
+    moveType: "charge",
     type: "ice",
     charges: 3,
     cooldown: 3.5,
@@ -710,6 +1040,7 @@ var movesCharge = {
   },
   "icy-wind": {
     name: "Icy Wind",
+    moveType: "charge",
     type: "ice",
     charges: 5,
     cooldown: 3.8,
@@ -719,6 +1050,7 @@ var movesCharge = {
   },
   "iron-head": {
     name: "Iron Head",
+    moveType: "charge",
     type: "steel",
     charges: 2,
     cooldown: 2,
@@ -728,6 +1060,7 @@ var movesCharge = {
   },
   "leaf-blade": {
     name: "Leaf Blade",
+    moveType: "charge",
     type: "grass",
     charges: 2,
     cooldown: 2.8,
@@ -737,6 +1070,7 @@ var movesCharge = {
   },
   "low-sweep": {
     name: "Low Sweep",
+    moveType: "charge",
     type: "fighting",
     charges: 4,
     cooldown: 2.25,
@@ -746,6 +1080,7 @@ var movesCharge = {
   },
   "magnet-bomb": {
     name: "Magnet Bomb",
+    moveType: "charge",
     type: "steel",
     charges: 4,
     cooldown: 2.8,
@@ -755,6 +1090,7 @@ var movesCharge = {
   },
   "megahorn": {
     name: "Megahorn",
+    moveType: "charge",
     type: "bug",
     charges: 1,
     cooldown: 3.2,
@@ -764,6 +1100,7 @@ var movesCharge = {
   },
   "moonblast": {
     name: "Moonblast",
+    moveType: "charge",
     type: "fairy",
     charges: 1,
     cooldown: 4.1,
@@ -773,6 +1110,7 @@ var movesCharge = {
   },
   "mud-bomb": {
     name: "Mud Bomb",
+    moveType: "charge",
     type: "ground",
     charges: 4,
     cooldown: 2.6,
@@ -782,6 +1120,7 @@ var movesCharge = {
   },
   "night-slash": {
     name: "Night Slash",
+    moveType: "charge",
     type: "dark",
     charges: 4,
     cooldown: 2.7,
@@ -791,6 +1130,7 @@ var movesCharge = {
   },
   "ominous-wind": {
     name: "Ominous Wind",
+    moveType: "charge",
     type: "ghost",
     charges: 4,
     cooldown: 3.1,
@@ -800,6 +1140,7 @@ var movesCharge = {
   },
   "petal-blizzard": {
     name: "Petal Blizzard",
+    moveType: "charge",
     type: "grass",
     charges: 2,
     cooldown: 3.2,
@@ -809,6 +1150,7 @@ var movesCharge = {
   },
   "play-rough": {
     name: "Play Rough",
+    moveType: "charge",
     type: "fairy",
     charges: 2,
     cooldown: 2.9,
@@ -818,6 +1160,7 @@ var movesCharge = {
   },
   "poison-fang": {
     name: "Poison Fang",
+    moveType: "charge",
     type: "poison",
     charges: 5,
     cooldown: 2.4,
@@ -827,6 +1170,7 @@ var movesCharge = {
   },
   "power-gem": {
     name: "Power Gem",
+    moveType: "charge",
     type: "rock",
     charges: 3,
     cooldown: 2.9,
@@ -836,6 +1180,7 @@ var movesCharge = {
   },
   "power-whip": {
     name: "Power Whip",
+    moveType: "charge",
     type: "grass",
     charges: 1,
     cooldown: 2.8,
@@ -845,6 +1190,7 @@ var movesCharge = {
   },
   "psybeam": {
     name: "Psybeam",
+    moveType: "charge",
     type: "psychic",
     charges: 4,
     cooldown: 3.88,
@@ -854,6 +1200,7 @@ var movesCharge = {
   },
   "psychic": {
     name: "Psychic",
+    moveType: "charge",
     type: "psychic",
     charges: 2,
     cooldown: 2.8,
@@ -863,6 +1210,7 @@ var movesCharge = {
   },
   "psyshock": {
     name: "Psyshock",
+    moveType: "charge",
     type: "psychic",
     charges: 3,
     cooldown: 2.7,
@@ -872,6 +1220,7 @@ var movesCharge = {
   },
   "rock-slide": {
     name: "Rock Slide",
+    moveType: "charge",
     type: "rock",
     charges: 3,
     cooldown: 3.2,
@@ -881,6 +1230,7 @@ var movesCharge = {
   },
   "rock-tomb": {
     name: "Rock Tomb",
+    moveType: "charge",
     type: "rock",
     charges: 3,
     cooldown: 3.4,
@@ -890,6 +1240,7 @@ var movesCharge = {
   },
   "scald": {
     name: "Scald",
+    moveType: "charge",
     type: "water",
     charges: 3,
     cooldown: 4,
@@ -899,6 +1250,7 @@ var movesCharge = {
   },
   "seed-bomb": {
     name: "Seed Bomb",
+    moveType: "charge",
     type: "bug",
     charges: 3,
     cooldown: 2.4,
@@ -908,6 +1260,7 @@ var movesCharge = {
   },
   "shadow-ball": {
     name: "Shadow Ball",
+    moveType: "charge",
     type: "ghost",
     charges: 3,
     cooldown: 3.08,
@@ -917,6 +1270,7 @@ var movesCharge = {
   },
   "signal-beam": {
     name: "Signal Beam",
+    moveType: "charge",
     type: "bug",
     charges: 3,
     cooldown: 3.1,
@@ -926,6 +1280,7 @@ var movesCharge = {
   },
   "sludge": {
     name: "Sludge",
+    moveType: "charge",
     type: "poison",
     charges: 4,
     cooldown: 2.6,
@@ -935,6 +1290,7 @@ var movesCharge = {
   },
   "sludge-bomb": {
     name: "Sludge Bomb",
+    moveType: "charge",
     type: "poison",
     charges: 2,
     cooldown: 2.6,
@@ -944,6 +1300,7 @@ var movesCharge = {
   },
   "sludge-wave": {
     name: "Sludge Wave",
+    moveType: "charge",
     type: "poison",
     charges: 1,
     cooldown: 3.4,
@@ -953,6 +1310,7 @@ var movesCharge = {
   },
   "solar-beam": {
     name: "Solar Beam",
+    moveType: "charge",
     type: "grass",
     charges: 1,
     cooldown: 4.9,
@@ -962,6 +1320,7 @@ var movesCharge = {
   },
   "stomp": {
     name: "Stomp",
+    moveType: "charge",
     type: "normal",
     charges: 4,
     cooldown: 2.1,
@@ -971,6 +1330,7 @@ var movesCharge = {
   },
   "stone-edge": {
     name: "Stone Edge",
+    moveType: "charge",
     type: "rock",
     charges: 1,
     cooldown: 3.1,
@@ -980,6 +1340,7 @@ var movesCharge = {
   },
   "struggle": {
     name: "Struggle",
+    moveType: "charge",
     type: "normal",
     charges: 5,
     cooldown: 1.7,
@@ -989,6 +1350,7 @@ var movesCharge = {
   },
   "submission": {
     name: "Submission",
+    moveType: "charge",
     type: "fighting",
     charges: 3,
     cooldown: 2.1,
@@ -998,6 +1360,7 @@ var movesCharge = {
   },
   "swift": {
     name: "Swift",
+    moveType: "charge",
     type: "normal",
     charges: 4,
     cooldown: 3,
@@ -1007,6 +1370,7 @@ var movesCharge = {
   },
   "thunder": {
     name: "Thunder",
+    moveType: "charge",
     type: "electric",
     charges: 1,
     cooldown: 4.3,
@@ -1016,6 +1380,7 @@ var movesCharge = {
   },
   "thunder-punch": {
     name: "Thunder Punch",
+    moveType: "charge",
     type: "electric",
     charges: 3,
     cooldown: 2.4,
@@ -1025,6 +1390,7 @@ var movesCharge = {
   },
   "thunderbolt": {
     name: "Thunderbolt",
+    moveType: "charge",
     type: "electric",
     charges: 2,
     cooldown: 2.7,
@@ -1034,6 +1400,7 @@ var movesCharge = {
   },
   "twister": {
     name: "Twister",
+    moveType: "charge",
     type: "dragon",
     charges: 5,
     cooldown: 2.7,
@@ -1043,6 +1410,7 @@ var movesCharge = {
   },
   "vice-grip": {
     name: "Vice Grip",
+    moveType: "charge",
     type: "normal",
     charges: 5,
     cooldown: 2.1,
@@ -1052,6 +1420,7 @@ var movesCharge = {
   },
   "water-pulse": {
     name: "Water Pulse",
+    moveType: "charge",
     type: "water",
     charges: 4,
     cooldown: 3.3,
@@ -1061,6 +1430,7 @@ var movesCharge = {
   },
   "wrap": {
     name: "Wrap",
+    moveType: "charge",
     type: "normal",
     charges: 5,
     cooldown: 4,
@@ -1070,267 +1440,13 @@ var movesCharge = {
   },
   "x-scissor": {
     name: "X-Scissor",
+    moveType: "charge",
     type: "bug",
     charges: 3,
     cooldown: 2.1,
     dodge: 0.25,
     critical: 0.05,
     attack: 35
-  }
-};
-
-/*
-  moves-quick.js
-  godex - list of Quick pokemon moves
-  data garnered from pokemongo.gamepress.gg
-*/
-
-var movesQuick = {
-  "acid": {
-    name: "Acid",
-    type: "poison",
-    attack: 10,
-    cooldown: 1.05
-  },
-  "bite": {
-    name: "Bite",
-    type: "dark",
-    attack: 6,
-    cooldown: 0.5
-  },
-  "bubble": {
-    name: "Bubble",
-    type: "water",
-    attack: 25,
-    cooldown: 2.3
-  },
-  "bug-bite": {
-    name: "Bug Bite",
-    type: "bug",
-    attack: 5,
-    cooldown: 0.45
-  },
-  "bullet-punch": {
-    name: "Bullet Punch",
-    type: "steel",
-    attack: 10,
-    cooldown: 1.2
-  },
-  "confusion": {
-    name: "Confusion",
-    type: "psychic",
-    attack: 15,
-    cooldown: 1.51
-  },
-  "cut": {
-    name: "Cut",
-    type: "normal",
-    attack: 12,
-    cooldown: 1.13
-  },
-  "dragon-breath": {
-    name: "Dragon Breath",
-    type: "dragon",
-    attack: 6,
-    cooldown: 0.5
-  },
-  "ember": {
-    name: "Ember",
-    type: "fire",
-    attack: 10,
-    cooldown: 1.05
-  },
-  "feint-attack": {
-    name: "Feint Attack",
-    type: "dark",
-    attack: 12,
-    cooldown: 1.04
-  },
-  "fire-fang": {
-    name: "Fire Fang",
-    type: "fire",
-    attack: 10,
-    cooldown: 0.84
-  },
-  "frost-breath": {
-    name: "Frost Breath",
-    type: "ice",
-    attack: 9,
-    cooldown: 0.8
-  },
-  "fury-cutter": {
-    name: "Fury Cutter",
-    type: "bug",
-    attack: 3,
-    cooldown: 0.4
-  },
-  "ice-shard": {
-    name: "Ice Shard",
-    type: "ice",
-    attack: 15,
-    cooldown: 1.4
-  },
-  "karate-chop": {
-    name: "Karate Chop",
-    type: "fighting",
-    attack: 6,
-    cooldown: 0.8
-  },
-  "lick": {
-    name: "Lick",
-    type: "ghost",
-    attack: 5,
-    cooldown: 0.5
-  },
-  "low-kick": {
-    name: "Low Kick",
-    type: "fighting",
-    attack: 5,
-    cooldown: 0.6
-  },
-  "metal-claw": {
-    name: "Metal Claw",
-    type: "steel",
-    attack: 8,
-    cooldown: 0.63
-  },
-  "mud-shot": {
-    name: "Mud Shot",
-    type: "ground",
-    attack: 6,
-    cooldown: 0.55
-  },
-  "mud-slap": {
-    name: "Mud Slap",
-    type: "ground",
-    attack: 15,
-    cooldown: 1.35
-  },
-  "peck": {
-    name: "Peck",
-    type: "flying",
-    attack: 10,
-    cooldown: 1.15
-  },
-  "poison-jab": {
-    name: "Poison Jab",
-    type: "poison",
-    attack: 12,
-    cooldown: 1.05
-  },
-  "poison-sting": {
-    name: "Poison Sting",
-    type: "poison",
-    attack: 6,
-    cooldown: 0.58
-  },
-  "pound": {
-    name: "Pound",
-    type: "normal",
-    attack: 7,
-    cooldown: 0.54
-  },
-  "psycho-cut": {
-    name: "Psycho Cut",
-    type: "psychic",
-    attack: 7,
-    cooldown: 0.57
-  },
-  "quick-attack": {
-    name: "Quick Attack",
-    type: "normal",
-    attack: 10,
-    cooldown: 1.33
-  },
-  "razor-leaf": {
-    name: "Razor Leaf",
-    type: "grass",
-    attack: 15,
-    cooldown: 1.45
-  },
-  "rock-smash": {
-    name: "Rock Smash",
-    type: "fighting",
-    attack: 15,
-    cooldown: 1.41
-  },
-  "rock-throw": {
-    name: "Rock Throw",
-    type: "rock",
-    attack: 12,
-    cooldown: 1.36
-  },
-  "scratch": {
-    name: "Scratch",
-    type: "normal",
-    attack: 6,
-    cooldown: 0.5
-  },
-  "shadow-claw": {
-    name: "Shadow Claw",
-    type: "ghost",
-    attack: 11,
-    cooldown: 0.95
-  },
-  "spark": {
-    name: "Spark",
-    type: "electric",
-    attack: 7,
-    cooldown: 0.7
-  },
-  "splash": {
-    name: "Splash",
-    type: "water",
-    attack: 0,
-    cooldown: 1.23
-  },
-  "steel-wing": {
-    name: "Steel Wing",
-    type: "steel",
-    attack: 15,
-    cooldown: 1.33
-  },
-  "sucker-punch": {
-    name: "Sucker Punch",
-    type: "dark",
-    attack: 7,
-    cooldown: 0.7
-  },
-  "tackle": {
-    name: "Tackle",
-    type: "normal",
-    attack: 12,
-    cooldown: 1.1
-  },
-  "thunder-shock": {
-    name: "Thunder Shock",
-    type: "electric",
-    attack: 5,
-    cooldown: 0.6
-  },
-  "vine-whip": {
-    name: "Vine Whip",
-    type: "grass",
-    attack: 7,
-    cooldown: 0.65
-  },
-  "water-gun": {
-    name: "Water Gun",
-    type: "water",
-    attack: 6,
-    cooldown: 0.5
-  },
-  "wing-attack": {
-    name: "Wing Attack",
-    type: "flying",
-    attack: 9,
-    cooldown: 0.75
-  },
-  "zen-headbutt": {
-    name: "Zen Headbutt",
-    type: "psychic",
-    attack: 12,
-    cooldown: 1.05
   }
 };
 
@@ -3958,6 +4074,156 @@ var types = {
 };
 
 /*
+  gymtool.js
+  Allow for a collection of pokemon to review
+*/
+
+var gymtool = function() {
+  this.list = {};
+  this.count = 0;
+};
+
+
+
+// Prototype for above collection
+gymtool.prototype = {
+  // Add a pokemon to gym
+  add: function(search) {
+    var existing = this.list[key(search)];
+    if (existing) {
+      this.count += 1;
+      existing.count += 1;
+    } else {
+      var pokemon = get(search);
+      if (pokemon) {
+        this.list[key(search)] = pokemon;
+        this.count += 1;
+      }
+    }
+  },
+
+  // Remove a pokemon from gym
+  remove: function(search) {
+    var existing = this.list[key(search)];
+    if (existing) {
+      if (existing.count > 1) {
+        // if more than 1, just remove 1
+        existing.count -= 1;
+      } else {
+        delete this.list[key(search)];
+      }
+      this.count -= 1;
+    }
+  },
+
+  // Get the types in the gym
+  types: function() {
+    var x, result = [], types = {};
+    for (x in this.list) {
+      var pokemon = this.list[x];
+      for (var i = 0;i < pokemon.type.length;i++) {
+        // put it all in an object so we don't have multiples
+        var type = pokemon.type[i];
+        if (!types[type]) types[type] = pokemon.count;
+        else types[type] += pokemon.count;
+      }
+    }
+    // convert object to array
+    for (x in types) {
+      result.push({
+        name: x,
+        num: types[x]
+      });
+    }
+    return result;
+  },
+
+  // Get types not in the gym
+  unmodified: function() {
+    var result = [];
+    for (var t in godex.types) {
+      result.push(t);
+    }
+    // Build an array of ALL THE TYPES
+    // and then pull the types that are in the gym out of it!
+    for (var p in this.list) {
+      var pokemon = this.list[p];
+      for (var o in pokemon.offense) {
+        var _o = result.indexOf(o); // index of o
+        if (_o > -1) result.splice(_o, 1); // remove if exists
+      }
+      for (var d in pokemon.defense) {
+        var _d = result.indexOf(d); // index of d
+        if (_d > -1) result.splice(_d, 1); // remove if exists
+      }
+    }
+    return result;
+  },
+
+  // Combined offense of gym
+  offense: function(sort) {
+    var offense = {}, result = [];
+    for (var poke in this.list) {
+      var mon = this.list[poke];
+      for (var i = 0;i < mon.count;i++) {
+        for (var t in mon.offense) {
+          if (!offense[t]) offense[t] = this.count;
+          offense[t] += (mon.offense[t] - 1);
+        }
+      }
+    }
+    for (var type in offense) {
+      var score = rnd(offense[type] / this.count);
+      result.push({
+        name: type,
+        score: score
+      });
+    }
+    if (sort) {
+      result.sort(function(a,b) {
+        return a.score - b.score;
+      });
+    } else {
+      result.sort(function(a,b) {
+        return b.score - a.score;
+      });
+    }
+    return result;
+  },
+
+  // Combined offense of gym
+  defense: function(sort) {
+    var defense = {}, result = [];
+    for (var poke in this.list) {
+      var mon = this.list[poke];
+      for (var i = 0;i < mon.count;i++) {
+        for (var t in mon.defense) {
+          if (!defense[t]) defense[t] = this.count;
+          defense[t] += (mon.defense[t] - 1);
+        }
+      }
+    }
+    for (var type in defense) {
+      var score = rnd(defense[type] / this.count);
+      result.push({
+        name: type,
+        score: score
+      });
+    }
+    if (sort) {
+      result.sort(function(a,b) {
+        return b.score - a.score;
+      });
+    } else {
+      result.sort(function(a,b) {
+        return a.score - b.score;
+      });
+    }
+    return result;
+  }
+};
+
+/*
   appraise.js
   calculate iv's! maybe? idk.
   Credit to:
@@ -3983,7 +4249,7 @@ var appraise = function(opt) {
 
   var reappraise = function(atk, def, sta, atkIV, defIV, staIV) {
     if (!atk && !def && !sta) return true;
-    
+
     if (atk && !def && !sta) return (atkIV > defIV && atkIV > staIV);
     if (!atk && def && !sta) return (defIV > atkIV && defIV > staIV);
     if (!atk && !def && sta) return (staIV > atkIV && staIV > defIV);
@@ -4005,14 +4271,16 @@ var appraise = function(opt) {
       add = function(a,b) {
         return a + b;
       };
-    grades.min = ivs[0].perf;
-    grades.max = ivs[0].perf;
-    for (var _g = 0;_g < ivs.length;_g++) {
-      toGrade.push(ivs[_g].perf);
-      if (ivs[_g].perf > grades.max) grades.max = ivs[_g].perf;
-      if (ivs[_g].perf < grades.min) grades.min = ivs[_g].perf;
+    if (ivs.length) {
+      grades.min = ivs[0].perf;
+      grades.max = ivs[0].perf;
+      for (var _g = 0;_g < ivs.length;_g++) {
+        toGrade.push(ivs[_g].perf);
+        if (ivs[_g].perf > grades.max) grades.max = ivs[_g].perf;
+        if (ivs[_g].perf < grades.min) grades.min = ivs[_g].perf;
+      }
+      grades.avg = toGrade.reduce(add, 0) / toGrade.length;
     }
-    grades.avg = toGrade.reduce(add, 0) / toGrade.length;
     return grades;
   };
 
@@ -4042,7 +4310,14 @@ var appraise = function(opt) {
     for (atkIV = 0;atkIV <= 15;atkIV++) {
       for (defIV = 0;defIV <= 15;defIV++) {
         if (testCP(opt.cp, atkIV, defIV, staIV, _hData.lvl, opt.pokemon)) {
-          if (reappraise(opt.atk, opt.def, opt.sta, atkIV, defIV, staIV)) {
+          if (reappraise({
+              atk: opt.strongAtk,
+              def: opt.strongDef,
+              sta: opt.strongHP,
+              atkIV: atkIV,
+              defIV: defIV,
+              staIV: staIV
+            })) {
             potential.push({
               atk: atkIV,
               def: defIV,
@@ -4080,18 +4355,17 @@ var godex = {
   pokemon: pokemon,
   types: types,
   levels: levels,
-  moves: {
-    quick: movesQuick,
-    charge: movesCharge
-  },
-  appraise: appraise
+  moves: moves,
+  appraise: appraise,
+  gymtool: gymtool
 };
 
 // Build and Return Library
 (function(godex) {
   // simple function to clean keys
   var key = function(string) {
-      return string
+      if (typeof string !== "string") return string;
+      else return string
         .replace(".", "")
         .replace(" ", "-")
         .replace("'", "")
@@ -4154,327 +4428,109 @@ var godex = {
     return move;
   };
 
-  // Fetch a pokemon
-  var get = function(search) {
-    var result = false;
-    if (search === parseInt(search, 10) && search <= 151) {
-      // try finding by id
-      for (var x in godex.pokemon) {
-        if (godex.pokemon[x].id == search) {
-          result = godex.pokemon[x];
-        }
-      }
-   }else if (godex.pokemon[key(search)]) {
-      // try finding by key
-      result = godex.pokemon[key(search)];
+  // Fetch data
+  var get = function() {
+    var args = arguments;
+    if (!args.length) return { method: "get", err: "No arguments passed." };
+
+    var result = false, search, subtype = false,
+      target = args.length == 2 ? args[1] : args[0],
+      location = args.length == 2 ? args[0].toLowerCase() : "pokemon";
+
+    // Subproperty Location?
+    if (location.indexOf(".") > -1) {
+      subtype = location.split(".")[1];
+      location = location.split(".")[0];
+      search = godex[location];
     } else {
-      // or just by name
-      for (var x in godex.pokemon) {
-        if (godex.pokemon[x].name.toLowerCase() == search.toLowerCase()) {
-          result = godex.pokemon[x];
+      if (location == "type") location = "types";
+      if (location == "move") location = "moves";
+      search = godex[location];
+    }
+
+    if (!search) return { method: "get", err: "Couldn't find: " + location };
+
+    // If subproperty, get it!
+    if (subtype) {
+      result = [];
+      for (var subtypes in search) {
+        var fetch = search[subtypes],
+          _data = fetch[subtype];
+        if (!_data) {
+          return { method: "get", err: "Couldn't find subtype: " + subtype };
+        }
+        if (Array.isArray(_data)) {
+          if (_data.indexOf(target.toLowerCase()) > -1) result.push(fetch);
+        } else if (isNaN(_data)) {
+          if (_data.toLowerCase() == target.toLowerCase()) result.push(fetch);
+        } else {
+          if (_data == target) result.push(fetch);
         }
       }
+      return result;
     }
-    if (result) result = buildPokemon(result);
-    return result;
-  };
+    // Are we just fetching the data?
+    if (target == "all") return search;
 
-  // Fetch a type
-  var getType = function(search) {
-    var result = false;
-    if (godex.types[key(search)]) {
-      result = godex.types[key(search)];
-    }
-    return result;
-  };
-
-  // Fetch a move
-  var getMove = function(search) {
-    var result = false;
-    if (godex.moves.quick[key(search)]) {
-      result = godex.moves.quick[key(search)];
-    }
-    if (godex.moves.charge[key(search)]) {
-      result = godex.moves.charge[key(search)];
-    }
-    if (result) result = buildMove(result);
-    return result;
-  };
-
-  // Fetch levels by dust
-  var getLevels = function(dust) {
-    var result = [];
-    for (var lvl in godex.levels) {
-      if (godex.levels[lvl].dust == dust) {
-        result[lvl] = godex.levels[lvl];
+    // Or a list of the data?
+    if (target == "list") {
+      result = [];
+      for (var thing in search) {
+        if (search[thing].name) {
+          result.push({
+            key: thing,
+            name: search[thing].name
+          });
+        } else {
+          result.push({
+            key: thing,
+            data: search[thing]
+          });
+        }
       }
+      return result;
+    }
+
+    // Is it as simple as a key?
+    if (search[key(target)]) result = search[key(target)];
+
+    // Well, let's look deeper
+    for (var query in search) {
+      // Is it a name?
+      if (search[query].name == target) result = search[query];
+
+      // Or an ID?
+      if (search[query].id == parseInt(target)) result = search[query];
+    }
+
+    if (result) {
+      // do some building
+      if (location.indexOf("pokemon") > -1) result = buildPokemon(result);
+      if (location.indexOf("move") > -1) result = buildMove(result);
+    } else {
+      result = { method: "get", err: "Couldn't find: " + target };
     }
     return result;
   };
-
-  // Fetch dust tiers
-  var getDust = function() {
-    var dusts = [], response = [];
-    for (var lvl in godex.levels) {
-      var dust = godex.levels[lvl].dust;
-      if (dusts.indexOf(dust) < 0) {
-        dusts.push(dust);
-        response.push({ level:lvl, dust:dust });
-      }
-    }
-    return response;
-  };
-
-  // Get Pokemon by type
-  var byType = function(search) {
-    var result = [];
-    for (var x in godex.pokemon) {
-      var poke = godex.pokemon[x];
-      if (poke.type.indexOf(key(search)) > -1) {
-        result.push({
-          key: x,
-          name: poke.name
-        });
-      }
-    }
-    return result;
-  };
-
-  // Get a list of pokemon
-  var list = function(alpha) {
-    var result = [];
-    for (var x in godex.pokemon) {
-      result.push({
-        key: x,
-        name: godex.pokemon[x].name
-      });
-    }
-    if (alpha) {
-      result.sort(function(a,b) {
-        return a.name - b.name;
-      });
-    }
-    return result;
-  };
-
-  // Get a list of types
-  var listTypes = function(alpha) {
-    var result = [];
-    for (var x in godex.types) {
-      result.push({
-        key: x,
-        name: godex.types[x].name
-      });
-    }
-    if (alpha) {
-      result.sort(function(a,b) {
-        return a.name - b.name;
-      });
-    }
-    return result;
-  };
-
-  // Get a list of moves
-  var listMoves = function(alpha) {
-    var x, result = [];
-    for (x in godex.moves.quick) {
-      result.push({
-        key: x,
-        type: 'quick',
-        name: godex.moves.quick[x].name
-      });
-    }
-    for (x in godex.moves.charge) {
-      result.push({
-        key: x,
-        type: 'charge',
-        name: godex.moves.charge[x].name
-      });
-    }
-    if (alpha) {
-      result.sort(function(a,b) {
-        return a.name - b.name;
-      });
-    }
-    return result;
-  };
-
-  // Allow for a collection
-  // of pokemon, a "Gym"
-  var gym = function() {
-    this.list = {};
-    this.count = 0;
-  };
-
 
   // Appraise a pokemon
-  var appraise = function(poke, cp, hp, dust, powered, tAtk, tDef, tSta) {
-    var pokemon = get(poke);
-    if (!pokemon) return { error: "Pokemon Not Found" };
-    if (!cp) return { error: "CP not entered" };
-    if (!hp) return { error: "HP not entered" };
-    if (!dust) return { error: "Dust not entered" };
+  var appraise = function(options) {
+    options.pokemon = get(options.pokemon);
+    if (!options.pokemon) return { method: "appraise", err: "Poke Not Found" };
+    if (!options.cp) return { method: "appraise", err: "CP Not Entered" };
+    if (!options.hp) return { method: "appraise", err: "HP Not Entered" };
+    if (!options.dust) return { method: "appraise", err: "Dust Not Entered" };
 
-    var lvls = getLevels(dust);
-    if (!lvls.length) return { error: "Dust Invalid" };
+    options.levels = get("levels.dust", options.dust);
+    if (!options.levels.length) return { method: "appraise", err: "Dust Invalid" };
 
-    return godex.appraise({
-      levels: lvls,
-      pokemon: pokemon,
-      cp:cp, hp:hp, dust:dust, powered:powered,
-      atk: tAtk, def: tDef, sta: tSta
-    });
-  };
-
-  // Prototype for above collection
-  gym.prototype = {
-    // Add a pokemon to gym
-    add: function(search) {
-      var existing = this.list[key(search)];
-      if (existing) {
-        this.count += 1;
-        existing.count += 1;
-      } else {
-        var pokemon = get(search);
-        if (pokemon) {
-          this.list[key(search)] = pokemon;
-          this.count += 1;
-        }
-      }
-    },
-
-    // Remove a pokemon from gym
-    remove: function(search) {
-      var existing = this.list[key(search)];
-      if (existing) {
-        if (existing.count > 1) {
-          // if more than 1, just remove 1
-          existing.count -= 1;
-        } else {
-          delete this.list[key(search)];
-        }
-        this.count -= 1;
-      }
-    },
-
-    // Get the types in the gym
-    types: function() {
-      var x, result = [], types = {};
-      for (x in this.list) {
-        var pokemon = this.list[x];
-        for (var i = 0;i < pokemon.type.length;i++) {
-          // put it all in an object so we don't have multiples
-          var type = pokemon.type[i];
-          if (!types[type]) types[type] = pokemon.count;
-          else types[type] += pokemon.count;
-        }
-      }
-      // convert object to array
-      for (x in types) {
-        result.push({
-          name: x,
-          num: types[x]
-        });
-      }
-      return result;
-    },
-
-    // Get types not in the gym
-    unmodified: function() {
-      var result = [];
-      for (var t in godex.types) {
-        result.push(t);
-      }
-      // Build an array of ALL THE TYPES
-      // and then pull the types that are in the gym out of it!
-      for (var p in this.list) {
-        var pokemon = this.list[p];
-        for (var o in pokemon.offense) {
-          var _o = result.indexOf(o); // index of o
-          if (_o > -1) result.splice(_o, 1); // remove if exists
-        }
-        for (var d in pokemon.defense) {
-          var _d = result.indexOf(d); // index of d
-          if (_d > -1) result.splice(_d, 1); // remove if exists
-        }
-      }
-      return result;
-    },
-
-    // Combined offense of gym
-    offense: function(sort) {
-      var offense = {}, result = [];
-      for (var poke in this.list) {
-        var mon = this.list[poke];
-        for (var i = 0;i < mon.count;i++) {
-          for (var t in mon.offense) {
-            if (!offense[t]) offense[t] = this.count;
-            offense[t] += (mon.offense[t] - 1);
-          }
-        }
-      }
-      for (var type in offense) {
-        var score = rnd(offense[type] / this.count);
-        result.push({
-          name: type,
-          score: score
-        });
-      }
-      if (sort) {
-        result.sort(function(a,b) {
-          return a.score - b.score;
-        });
-      } else {
-        result.sort(function(a,b) {
-          return b.score - a.score;
-        });
-      }
-      return result;
-    },
-
-    // Combined offense of gym
-    defense: function(sort) {
-      var defense = {}, result = [];
-      for (var poke in this.list) {
-        var mon = this.list[poke];
-        for (var i = 0;i < mon.count;i++) {
-          for (var t in mon.defense) {
-            if (!defense[t]) defense[t] = this.count;
-            defense[t] += (mon.defense[t] - 1);
-          }
-        }
-      }
-      for (var type in defense) {
-        var score = rnd(defense[type] / this.count);
-        result.push({
-          name: type,
-          score: score
-        });
-      }
-      if (sort) {
-        result.sort(function(a,b) {
-          return b.score - a.score;
-        });
-      } else {
-        result.sort(function(a,b) {
-          return a.score - b.score;
-        });
-      }
-      return result;
-    }
+    return godex.appraise(options);
   };
 
   // define the Library
   var dex = {
     get: get,
-    getType: getType,
-    getMove: getMove,
-    getDust: getDust,
-    byType: byType,
-    list: list,
-    listTypes: listTypes,
-    listMoves: listMoves,
-    gym: gym,
+    gym: gymtool,
     appraise: appraise,
     aZ: [ "A","B","C","D","E","F","G","H","I","J","K",
         "L","M","N","O","P","R","S","T","V","W","Z" ]

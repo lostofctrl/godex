@@ -13,6 +13,7 @@ gulp.task('default', function() {
     // fetch the data, scripts
     .src([
       data,
+      './src/gymtool.js',
       './src/appraise.js',
       './src/godex.js'
     ])

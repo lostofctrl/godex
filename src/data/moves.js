@@ -4,10 +4,299 @@
   data garnered from pokemongo.gamepress.gg
 */
 
-var movesCharge = {
+var moves = {
+  // quick moves
+  "acid": {
+    name: "Acid",
+    moveType: "quick",
+    type: "poison",
+    attack: 10,
+    cooldown: 1.05
+  },
+  "bite": {
+    name: "Bite",
+    moveType: "quick",
+    type: "dark",
+    attack: 6,
+    cooldown: 0.5
+  },
+  "bubble": {
+    name: "Bubble",
+    moveType: "quick",
+    type: "water",
+    attack: 25,
+    cooldown: 2.3
+  },
+  "bug-bite": {
+    name: "Bug Bite",
+    moveType: "quick",
+    type: "bug",
+    attack: 5,
+    cooldown: 0.45
+  },
+  "bullet-punch": {
+    name: "Bullet Punch",
+    moveType: "quick",
+    type: "steel",
+    attack: 10,
+    cooldown: 1.2
+  },
+  "confusion": {
+    name: "Confusion",
+    moveType: "quick",
+    type: "psychic",
+    attack: 15,
+    cooldown: 1.51
+  },
+  "cut": {
+    name: "Cut",
+    moveType: "quick",
+    type: "normal",
+    attack: 12,
+    cooldown: 1.13
+  },
+  "dragon-breath": {
+    name: "Dragon Breath",
+    moveType: "quick",
+    type: "dragon",
+    attack: 6,
+    cooldown: 0.5
+  },
+  "ember": {
+    name: "Ember",
+    moveType: "quick",
+    type: "fire",
+    attack: 10,
+    cooldown: 1.05
+  },
+  "feint-attack": {
+    name: "Feint Attack",
+    moveType: "quick",
+    type: "dark",
+    attack: 12,
+    cooldown: 1.04
+  },
+  "fire-fang": {
+    name: "Fire Fang",
+    moveType: "quick",
+    type: "fire",
+    attack: 10,
+    cooldown: 0.84
+  },
+  "frost-breath": {
+    name: "Frost Breath",
+    moveType: "quick",
+    type: "ice",
+    attack: 9,
+    cooldown: 0.8
+  },
+  "fury-cutter": {
+    name: "Fury Cutter",
+    moveType: "quick",
+    type: "bug",
+    attack: 3,
+    cooldown: 0.4
+  },
+  "ice-shard": {
+    name: "Ice Shard",
+    moveType: "quick",
+    type: "ice",
+    attack: 15,
+    cooldown: 1.4
+  },
+  "karate-chop": {
+    name: "Karate Chop",
+    moveType: "quick",
+    type: "fighting",
+    attack: 6,
+    cooldown: 0.8
+  },
+  "lick": {
+    name: "Lick",
+    moveType: "quick",
+    type: "ghost",
+    attack: 5,
+    cooldown: 0.5
+  },
+  "low-kick": {
+    name: "Low Kick",
+    moveType: "quick",
+    type: "fighting",
+    attack: 5,
+    cooldown: 0.6
+  },
+  "metal-claw": {
+    name: "Metal Claw",
+    moveType: "quick",
+    type: "steel",
+    attack: 8,
+    cooldown: 0.63
+  },
+  "mud-shot": {
+    name: "Mud Shot",
+    moveType: "quick",
+    type: "ground",
+    attack: 6,
+    cooldown: 0.55
+  },
+  "mud-slap": {
+    name: "Mud Slap",
+    moveType: "quick",
+    type: "ground",
+    attack: 15,
+    cooldown: 1.35
+  },
+  "peck": {
+    name: "Peck",
+    moveType: "quick",
+    type: "flying",
+    attack: 10,
+    cooldown: 1.15
+  },
+  "poison-jab": {
+    name: "Poison Jab",
+    moveType: "quick",
+    type: "poison",
+    attack: 12,
+    cooldown: 1.05
+  },
+  "poison-sting": {
+    name: "Poison Sting",
+    moveType: "quick",
+    type: "poison",
+    attack: 6,
+    cooldown: 0.58
+  },
+  "pound": {
+    name: "Pound",
+    moveType: "quick",
+    type: "normal",
+    attack: 7,
+    cooldown: 0.54
+  },
+  "psycho-cut": {
+    name: "Psycho Cut",
+    moveType: "quick",
+    type: "psychic",
+    attack: 7,
+    cooldown: 0.57
+  },
+  "quick-attack": {
+    name: "Quick Attack",
+    moveType: "quick",
+    type: "normal",
+    attack: 10,
+    cooldown: 1.33
+  },
+  "razor-leaf": {
+    name: "Razor Leaf",
+    moveType: "quick",
+    type: "grass",
+    attack: 15,
+    cooldown: 1.45
+  },
+  "rock-smash": {
+    name: "Rock Smash",
+    moveType: "quick",
+    type: "fighting",
+    attack: 15,
+    cooldown: 1.41
+  },
+  "rock-throw": {
+    name: "Rock Throw",
+    moveType: "quick",
+    type: "rock",
+    attack: 12,
+    cooldown: 1.36
+  },
+  "scratch": {
+    name: "Scratch",
+    moveType: "quick",
+    type: "normal",
+    attack: 6,
+    cooldown: 0.5
+  },
+  "shadow-claw": {
+    name: "Shadow Claw",
+    moveType: "quick",
+    type: "ghost",
+    attack: 11,
+    cooldown: 0.95
+  },
+  "spark": {
+    name: "Spark",
+    moveType: "quick",
+    type: "electric",
+    attack: 7,
+    cooldown: 0.7
+  },
+  "splash": {
+    name: "Splash",
+    moveType: "quick",
+    type: "water",
+    attack: 0,
+    cooldown: 1.23
+  },
+  "steel-wing": {
+    name: "Steel Wing",
+    moveType: "quick",
+    type: "steel",
+    attack: 15,
+    cooldown: 1.33
+  },
+  "sucker-punch": {
+    name: "Sucker Punch",
+    moveType: "quick",
+    type: "dark",
+    attack: 7,
+    cooldown: 0.7
+  },
+  "tackle": {
+    name: "Tackle",
+    moveType: "quick",
+    type: "normal",
+    attack: 12,
+    cooldown: 1.1
+  },
+  "thunder-shock": {
+    name: "Thunder Shock",
+    moveType: "quick",
+    type: "electric",
+    attack: 5,
+    cooldown: 0.6
+  },
+  "vine-whip": {
+    name: "Vine Whip",
+    moveType: "quick",
+    type: "grass",
+    attack: 7,
+    cooldown: 0.65
+  },
+  "water-gun": {
+    name: "Water Gun",
+    moveType: "quick",
+    type: "water",
+    attack: 6,
+    cooldown: 0.5
+  },
+  "wing-attack": {
+    name: "Wing Attack",
+    moveType: "quick",
+    type: "flying",
+    attack: 9,
+    cooldown: 0.75
+  },
+  "zen-headbutt": {
+    name: "Zen Headbutt",
+    moveType: "quick",
+    type: "psychic",
+    attack: 12,
+    cooldown: 1.05
+  },
   // charge moves
   "aerial-ace": {
     name: "Aerial Ace",
+    moveType: "charge",
     type: "flying",
     charges: 4,
     cooldown: 2.9,
@@ -17,6 +306,7 @@ var movesCharge = {
   },
   "air-cutter": {
     name: "Air Cutter",
+    moveType: "charge",
     type: "flying",
     charges: 4,
     cooldown: 3.3,
@@ -26,6 +316,7 @@ var movesCharge = {
   },
   "ancient-power": {
     name: "Ancient Power",
+    moveType: "charge",
     type: "rock",
     charges: 4,
     cooldown: 3.6,
@@ -35,6 +326,7 @@ var movesCharge = {
   },
   "aqua-jet": {
     name: "Aqua Jet",
+    moveType: "charge",
     type: "water",
     charges: 5,
     cooldown: 2.35,
@@ -44,6 +336,7 @@ var movesCharge = {
   },
   "aqua-tail": {
     name: "Aqua Tail",
+    moveType: "charge",
     type: "water",
     charges: 2,
     cooldown: 2.35,
@@ -53,6 +346,7 @@ var movesCharge = {
   },
   "blizzard": {
     name: "Blizzard",
+    moveType: "charge",
     type: "ice",
     charges: 1,
     cooldown: 3.9,
@@ -62,6 +356,7 @@ var movesCharge = {
   },
   "body-slam": {
     name: "Body Slam",
+    moveType: "charge",
     type: "normal",
     charges: 2,
     cooldown: 1.56,
@@ -71,6 +366,7 @@ var movesCharge = {
   },
   "bone-club": {
     name: "Bone Club",
+    moveType: "charge",
     type: "ground",
     charges: 4,
     cooldown: 1.6,
@@ -80,6 +376,7 @@ var movesCharge = {
   },
   "brick-break": {
     name: "Brick Break",
+    moveType: "charge",
     type: "fighting",
     charges: 3,
     cooldown: 1.6,
@@ -89,6 +386,7 @@ var movesCharge = {
   },
   "brine": {
     name: "Brine",
+    moveType: "charge",
     type: "water",
     charges: 4,
     cooldown: 2.4,
@@ -98,6 +396,7 @@ var movesCharge = {
   },
   "bubble-beam": {
     name: "Bubble Beam",
+    moveType: "charge",
     type: "water",
     charges: 4,
     cooldown: 2.9,
@@ -107,6 +406,7 @@ var movesCharge = {
   },
   "bug-buzz": {
     name: "Bug Buzz",
+    moveType: "charge",
     type: "bug",
     charges: 2,
     cooldown: 4.25,
@@ -116,6 +416,7 @@ var movesCharge = {
   },
   "bulldoze": {
     name: "Bulldoze",
+    moveType: "charge",
     type: "ground",
     charges: 4,
     cooldown: 3.4,
@@ -125,6 +426,7 @@ var movesCharge = {
   },
   "cross-chop": {
     name: "Cross Chop",
+    moveType: "charge",
     type: "fighting",
     charges: 1,
     cooldown: 2,
@@ -134,6 +436,7 @@ var movesCharge = {
   },
   "cross-poison": {
     name: "Cross Poison",
+    moveType: "charge",
     type: "poison",
     charges: 4,
     cooldown: 1.5,
@@ -143,6 +446,7 @@ var movesCharge = {
   },
   "dark-pulse": {
     name: "Dark Pulse",
+    moveType: "charge",
     type: "dark",
     charges: 3,
     cooldown: 3.5,
@@ -152,6 +456,7 @@ var movesCharge = {
   },
   "dazzling-gleam": {
     name: "Dazzling Gleam",
+    moveType: "charge",
     type: "fairy",
     charges: 3,
     cooldown: 4.2,
@@ -161,6 +466,7 @@ var movesCharge = {
   },
   "dig": {
     name: "Dig",
+    moveType: "charge",
     type: "ground",
     charges: 3,
     cooldown: 5.8,
@@ -170,6 +476,7 @@ var movesCharge = {
   },
   "disarming-voice": {
     name: "Disarming Voice",
+    moveType: "charge",
     type: "fairy",
     charges: 5,
     cooldown: 3.9,
@@ -179,6 +486,7 @@ var movesCharge = {
   },
   "discharge": {
     name: "Discharge",
+    moveType: "charge",
     type: "electric",
     charges: 3,
     cooldown: 2.5,
@@ -188,6 +496,7 @@ var movesCharge = {
   },
   "dragon-claw": {
     name: "Dragon Claw",
+    moveType: "charge",
     type: "dragon",
     charges: 2,
     cooldown: 1.6,
@@ -197,6 +506,7 @@ var movesCharge = {
   },
   "dragon-pulse": {
     name: "Dragon Pulse",
+    moveType: "charge",
     type: "dragon",
     charges: 2,
     cooldown: 3.6,
@@ -206,6 +516,7 @@ var movesCharge = {
   },
   "draining-kiss": {
     name: "Draining Kiss",
+    moveType: "charge",
     type: "fairy",
     charges: 5,
     cooldown: 2.8,
@@ -215,6 +526,7 @@ var movesCharge = {
   },
   "drill-peck": {
     name: "Drill Peck",
+    moveType: "charge",
     type: "flying",
     charges: 3,
     cooldown: 2.7,
@@ -224,6 +536,7 @@ var movesCharge = {
   },
   "drill-run": {
     name: "Drill Run",
+    moveType: "charge",
     type: "ground",
     charges: 3,
     cooldown: 3.4,
@@ -233,6 +546,7 @@ var movesCharge = {
   },
   "earthquake": {
     name: "Earthquake",
+    moveType: "charge",
     type: "ground",
     charges: 1,
     cooldown: 4.2,
@@ -242,6 +556,7 @@ var movesCharge = {
   },
   "fire-blast": {
     name: "Fire Blast",
+    moveType: "charge",
     type: "fire",
     charges: 1,
     cooldown: 4.1,
@@ -251,6 +566,7 @@ var movesCharge = {
   },
   "fire-punch": {
     name: "Fire Punch",
+    moveType: "charge",
     type: "fire",
     charges: 3,
     cooldown: 2.8,
@@ -260,6 +576,7 @@ var movesCharge = {
   },
   "flame-burst": {
     name: "Flame Burst",
+    moveType: "charge",
     type: "fire",
     charges: 4,
     cooldown: 2.1,
@@ -269,6 +586,7 @@ var movesCharge = {
   },
   "flame-charge": {
     name: "Flame Charge",
+    moveType: "charge",
     type: "fire",
     charges: 5,
     cooldown: 3.1,
@@ -278,6 +596,7 @@ var movesCharge = {
   },
   "flame-wheel": {
     name: "Flame Wheel",
+    moveType: "charge",
     type: "fire",
     charges: 4,
     cooldown: 4.6,
@@ -287,6 +606,7 @@ var movesCharge = {
   },
   "flamethrower": {
     name: "Flamethrower",
+    moveType: "charge",
     type: "fire",
     charges: 2,
     cooldown: 2.9,
@@ -296,6 +616,7 @@ var movesCharge = {
   },
   "flash-cannon": {
     name: "Flash Cannon",
+    moveType: "charge",
     type: "steel",
     charges: 3,
     cooldown: 3.9,
@@ -305,6 +626,7 @@ var movesCharge = {
   },
   "gunk-shot": {
     name: "Gunk Shot",
+    moveType: "charge",
     type: "poison",
     charges: 1,
     cooldown: 3,
@@ -314,6 +636,7 @@ var movesCharge = {
   },
   "heat-wave": {
     name: "Heat Wave",
+    moveType: "charge",
     type: "fire",
     charges: 1,
     cooldown: 3.8,
@@ -323,6 +646,7 @@ var movesCharge = {
   },
   "horn-attack": {
     name: "Horn Attack",
+    moveType: "charge",
     type: "normal",
     charges: 4,
     cooldown: 2.2,
@@ -332,6 +656,7 @@ var movesCharge = {
   },
   "hurricane": {
     name: "Hurricane",
+    moveType: "charge",
     type: "flying",
     charges: 1,
     cooldown: 3.2,
@@ -341,6 +666,7 @@ var movesCharge = {
   },
   "hydro-pump": {
     name: "Hydro Pump",
+    moveType: "charge",
     type: "water",
     charges: 1,
     cooldown: 3.8,
@@ -350,6 +676,7 @@ var movesCharge = {
   },
   "hyper-beam": {
     name: "Hyper Beam",
+    moveType: "charge",
     type: "normal",
     charges: 1,
     cooldown: 5,
@@ -359,6 +686,7 @@ var movesCharge = {
   },
   "hyper-fang": {
     name: "Hyper Fang",
+    moveType: "charge",
     type: "normal",
     charges: 3,
     cooldown: 2.1,
@@ -368,6 +696,7 @@ var movesCharge = {
   },
   "ice-beam": {
     name: "Ice Beam",
+    moveType: "charge",
     type: "ice",
     charges: 2,
     cooldown: 3.65,
@@ -377,6 +706,7 @@ var movesCharge = {
   },
   "ice-punch": {
     name: "Ice Punch",
+    moveType: "charge",
     type: "ice",
     charges: 3,
     cooldown: 3.5,
@@ -386,6 +716,7 @@ var movesCharge = {
   },
   "icy-wind": {
     name: "Icy Wind",
+    moveType: "charge",
     type: "ice",
     charges: 5,
     cooldown: 3.8,
@@ -395,6 +726,7 @@ var movesCharge = {
   },
   "iron-head": {
     name: "Iron Head",
+    moveType: "charge",
     type: "steel",
     charges: 2,
     cooldown: 2,
@@ -404,6 +736,7 @@ var movesCharge = {
   },
   "leaf-blade": {
     name: "Leaf Blade",
+    moveType: "charge",
     type: "grass",
     charges: 2,
     cooldown: 2.8,
@@ -413,6 +746,7 @@ var movesCharge = {
   },
   "low-sweep": {
     name: "Low Sweep",
+    moveType: "charge",
     type: "fighting",
     charges: 4,
     cooldown: 2.25,
@@ -422,6 +756,7 @@ var movesCharge = {
   },
   "magnet-bomb": {
     name: "Magnet Bomb",
+    moveType: "charge",
     type: "steel",
     charges: 4,
     cooldown: 2.8,
@@ -431,6 +766,7 @@ var movesCharge = {
   },
   "megahorn": {
     name: "Megahorn",
+    moveType: "charge",
     type: "bug",
     charges: 1,
     cooldown: 3.2,
@@ -440,6 +776,7 @@ var movesCharge = {
   },
   "moonblast": {
     name: "Moonblast",
+    moveType: "charge",
     type: "fairy",
     charges: 1,
     cooldown: 4.1,
@@ -449,6 +786,7 @@ var movesCharge = {
   },
   "mud-bomb": {
     name: "Mud Bomb",
+    moveType: "charge",
     type: "ground",
     charges: 4,
     cooldown: 2.6,
@@ -458,6 +796,7 @@ var movesCharge = {
   },
   "night-slash": {
     name: "Night Slash",
+    moveType: "charge",
     type: "dark",
     charges: 4,
     cooldown: 2.7,
@@ -467,6 +806,7 @@ var movesCharge = {
   },
   "ominous-wind": {
     name: "Ominous Wind",
+    moveType: "charge",
     type: "ghost",
     charges: 4,
     cooldown: 3.1,
@@ -476,6 +816,7 @@ var movesCharge = {
   },
   "petal-blizzard": {
     name: "Petal Blizzard",
+    moveType: "charge",
     type: "grass",
     charges: 2,
     cooldown: 3.2,
@@ -485,6 +826,7 @@ var movesCharge = {
   },
   "play-rough": {
     name: "Play Rough",
+    moveType: "charge",
     type: "fairy",
     charges: 2,
     cooldown: 2.9,
@@ -494,6 +836,7 @@ var movesCharge = {
   },
   "poison-fang": {
     name: "Poison Fang",
+    moveType: "charge",
     type: "poison",
     charges: 5,
     cooldown: 2.4,
@@ -503,6 +846,7 @@ var movesCharge = {
   },
   "power-gem": {
     name: "Power Gem",
+    moveType: "charge",
     type: "rock",
     charges: 3,
     cooldown: 2.9,
@@ -512,6 +856,7 @@ var movesCharge = {
   },
   "power-whip": {
     name: "Power Whip",
+    moveType: "charge",
     type: "grass",
     charges: 1,
     cooldown: 2.8,
@@ -521,6 +866,7 @@ var movesCharge = {
   },
   "psybeam": {
     name: "Psybeam",
+    moveType: "charge",
     type: "psychic",
     charges: 4,
     cooldown: 3.88,
@@ -530,6 +876,7 @@ var movesCharge = {
   },
   "psychic": {
     name: "Psychic",
+    moveType: "charge",
     type: "psychic",
     charges: 2,
     cooldown: 2.8,
@@ -539,6 +886,7 @@ var movesCharge = {
   },
   "psyshock": {
     name: "Psyshock",
+    moveType: "charge",
     type: "psychic",
     charges: 3,
     cooldown: 2.7,
@@ -548,6 +896,7 @@ var movesCharge = {
   },
   "rock-slide": {
     name: "Rock Slide",
+    moveType: "charge",
     type: "rock",
     charges: 3,
     cooldown: 3.2,
@@ -557,6 +906,7 @@ var movesCharge = {
   },
   "rock-tomb": {
     name: "Rock Tomb",
+    moveType: "charge",
     type: "rock",
     charges: 3,
     cooldown: 3.4,
@@ -566,6 +916,7 @@ var movesCharge = {
   },
   "scald": {
     name: "Scald",
+    moveType: "charge",
     type: "water",
     charges: 3,
     cooldown: 4,
@@ -575,6 +926,7 @@ var movesCharge = {
   },
   "seed-bomb": {
     name: "Seed Bomb",
+    moveType: "charge",
     type: "bug",
     charges: 3,
     cooldown: 2.4,
@@ -584,6 +936,7 @@ var movesCharge = {
   },
   "shadow-ball": {
     name: "Shadow Ball",
+    moveType: "charge",
     type: "ghost",
     charges: 3,
     cooldown: 3.08,
@@ -593,6 +946,7 @@ var movesCharge = {
   },
   "signal-beam": {
     name: "Signal Beam",
+    moveType: "charge",
     type: "bug",
     charges: 3,
     cooldown: 3.1,
@@ -602,6 +956,7 @@ var movesCharge = {
   },
   "sludge": {
     name: "Sludge",
+    moveType: "charge",
     type: "poison",
     charges: 4,
     cooldown: 2.6,
@@ -611,6 +966,7 @@ var movesCharge = {
   },
   "sludge-bomb": {
     name: "Sludge Bomb",
+    moveType: "charge",
     type: "poison",
     charges: 2,
     cooldown: 2.6,
@@ -620,6 +976,7 @@ var movesCharge = {
   },
   "sludge-wave": {
     name: "Sludge Wave",
+    moveType: "charge",
     type: "poison",
     charges: 1,
     cooldown: 3.4,
@@ -629,6 +986,7 @@ var movesCharge = {
   },
   "solar-beam": {
     name: "Solar Beam",
+    moveType: "charge",
     type: "grass",
     charges: 1,
     cooldown: 4.9,
@@ -638,6 +996,7 @@ var movesCharge = {
   },
   "stomp": {
     name: "Stomp",
+    moveType: "charge",
     type: "normal",
     charges: 4,
     cooldown: 2.1,
@@ -647,6 +1006,7 @@ var movesCharge = {
   },
   "stone-edge": {
     name: "Stone Edge",
+    moveType: "charge",
     type: "rock",
     charges: 1,
     cooldown: 3.1,
@@ -656,6 +1016,7 @@ var movesCharge = {
   },
   "struggle": {
     name: "Struggle",
+    moveType: "charge",
     type: "normal",
     charges: 5,
     cooldown: 1.7,
@@ -665,6 +1026,7 @@ var movesCharge = {
   },
   "submission": {
     name: "Submission",
+    moveType: "charge",
     type: "fighting",
     charges: 3,
     cooldown: 2.1,
@@ -674,6 +1036,7 @@ var movesCharge = {
   },
   "swift": {
     name: "Swift",
+    moveType: "charge",
     type: "normal",
     charges: 4,
     cooldown: 3,
@@ -683,6 +1046,7 @@ var movesCharge = {
   },
   "thunder": {
     name: "Thunder",
+    moveType: "charge",
     type: "electric",
     charges: 1,
     cooldown: 4.3,
@@ -692,6 +1056,7 @@ var movesCharge = {
   },
   "thunder-punch": {
     name: "Thunder Punch",
+    moveType: "charge",
     type: "electric",
     charges: 3,
     cooldown: 2.4,
@@ -701,6 +1066,7 @@ var movesCharge = {
   },
   "thunderbolt": {
     name: "Thunderbolt",
+    moveType: "charge",
     type: "electric",
     charges: 2,
     cooldown: 2.7,
@@ -710,6 +1076,7 @@ var movesCharge = {
   },
   "twister": {
     name: "Twister",
+    moveType: "charge",
     type: "dragon",
     charges: 5,
     cooldown: 2.7,
@@ -719,6 +1086,7 @@ var movesCharge = {
   },
   "vice-grip": {
     name: "Vice Grip",
+    moveType: "charge",
     type: "normal",
     charges: 5,
     cooldown: 2.1,
@@ -728,6 +1096,7 @@ var movesCharge = {
   },
   "water-pulse": {
     name: "Water Pulse",
+    moveType: "charge",
     type: "water",
     charges: 4,
     cooldown: 3.3,
@@ -737,6 +1106,7 @@ var movesCharge = {
   },
   "wrap": {
     name: "Wrap",
+    moveType: "charge",
     type: "normal",
     charges: 5,
     cooldown: 4,
@@ -746,6 +1116,7 @@ var movesCharge = {
   },
   "x-scissor": {
     name: "X-Scissor",
+    moveType: "charge",
     type: "bug",
     charges: 3,
     cooldown: 2.1,

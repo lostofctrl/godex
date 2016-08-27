@@ -85,7 +85,14 @@ var appraise = function(opt) {
     for (atkIV = 0;atkIV <= 15;atkIV++) {
       for (defIV = 0;defIV <= 15;defIV++) {
         if (testCP(opt.cp, atkIV, defIV, staIV, _hData.lvl, opt.pokemon)) {
-          if (reappraise(opt.atk, opt.def, opt.sta, atkIV, defIV, staIV)) {
+          if (reappraise({
+              atk: opt.strongAtk,
+              def: opt.strongDef,
+              sta: opt.strongHP,
+              atkIV: atkIV,
+              defIV: defIV,
+              staIV: staIV
+            })) {
             potential.push({
               atk: atkIV,
               def: defIV,

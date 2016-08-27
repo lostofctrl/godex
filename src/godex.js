@@ -8,18 +8,17 @@ var godex = {
   pokemon: pokemon,
   types: types,
   levels: levels,
-  moves: {
-    quick: movesQuick,
-    charge: movesCharge
-  },
-  appraise: appraise
+  moves: moves,
+  appraise: appraise,
+  gymtool: gymtool
 };
 
 // Build and Return Library
 (function(godex) {
   // simple function to clean keys
   var key = function(string) {
-      return string
+      if (typeof string !== "string") return string;
+      else return string
         .replace(".", "")
         .replace(" ", "-")
         .replace("'", "")
@@ -82,327 +81,109 @@ var godex = {
     return move;
   };
 
-  // Fetch a pokemon
-  var get = function(search) {
-    var result = false;
-    if (search === parseInt(search, 10) && search <= 151) {
-      // try finding by id
-      for (var x in godex.pokemon) {
-        if (godex.pokemon[x].id == search) {
-          result = godex.pokemon[x];
-        }
-      }
-   }else if (godex.pokemon[key(search)]) {
-      // try finding by key
-      result = godex.pokemon[key(search)];
+  // Fetch data
+  var get = function() {
+    var args = arguments;
+    if (!args.length) return { method: "get", err: "No arguments passed." };
+
+    var result = false, search, subtype = false,
+      target = args.length == 2 ? args[1] : args[0],
+      location = args.length == 2 ? args[0].toLowerCase() : "pokemon";
+
+    // Subproperty Location?
+    if (location.indexOf(".") > -1) {
+      subtype = location.split(".")[1];
+      location = location.split(".")[0];
+      search = godex[location];
     } else {
-      // or just by name
-      for (var x in godex.pokemon) {
-        if (godex.pokemon[x].name.toLowerCase() == search.toLowerCase()) {
-          result = godex.pokemon[x];
+      if (location == "type") location = "types";
+      if (location == "move") location = "moves";
+      search = godex[location];
+    }
+
+    if (!search) return { method: "get", err: "Couldn't find: " + location };
+
+    // If subproperty, get it!
+    if (subtype) {
+      result = [];
+      for (var subtypes in search) {
+        var fetch = search[subtypes],
+          _data = fetch[subtype];
+        if (!_data) {
+          return { method: "get", err: "Couldn't find subtype: " + subtype };
+        }
+        if (Array.isArray(_data)) {
+          if (_data.indexOf(target.toLowerCase()) > -1) result.push(fetch);
+        } else if (isNaN(_data)) {
+          if (_data.toLowerCase() == target.toLowerCase()) result.push(fetch);
+        } else {
+          if (_data == target) result.push(fetch);
         }
       }
+      return result;
     }
-    if (result) result = buildPokemon(result);
-    return result;
-  };
+    // Are we just fetching the data?
+    if (target == "all") return search;
 
-  // Fetch a type
-  var getType = function(search) {
-    var result = false;
-    if (godex.types[key(search)]) {
-      result = godex.types[key(search)];
-    }
-    return result;
-  };
-
-  // Fetch a move
-  var getMove = function(search) {
-    var result = false;
-    if (godex.moves.quick[key(search)]) {
-      result = godex.moves.quick[key(search)];
-    }
-    if (godex.moves.charge[key(search)]) {
-      result = godex.moves.charge[key(search)];
-    }
-    if (result) result = buildMove(result);
-    return result;
-  };
-
-  // Fetch levels by dust
-  var getLevels = function(dust) {
-    var result = [];
-    for (var lvl in godex.levels) {
-      if (godex.levels[lvl].dust == dust) {
-        result[lvl] = godex.levels[lvl];
+    // Or a list of the data?
+    if (target == "list") {
+      result = [];
+      for (var thing in search) {
+        if (search[thing].name) {
+          result.push({
+            key: thing,
+            name: search[thing].name
+          });
+        } else {
+          result.push({
+            key: thing,
+            data: search[thing]
+          });
+        }
       }
+      return result;
+    }
+
+    // Is it as simple as a key?
+    if (search[key(target)]) result = search[key(target)];
+
+    // Well, let's look deeper
+    for (var query in search) {
+      // Is it a name?
+      if (search[query].name == target) result = search[query];
+
+      // Or an ID?
+      if (search[query].id == parseInt(target)) result = search[query];
+    }
+
+    if (result) {
+      // do some building
+      if (location.indexOf("pokemon") > -1) result = buildPokemon(result);
+      if (location.indexOf("move") > -1) result = buildMove(result);
+    } else {
+      result = { method: "get", err: "Couldn't find: " + target };
     }
     return result;
   };
-
-  // Fetch dust tiers
-  var getDust = function() {
-    var dusts = [], response = [];
-    for (var lvl in godex.levels) {
-      var dust = godex.levels[lvl].dust;
-      if (dusts.indexOf(dust) < 0) {
-        dusts.push(dust);
-        response.push({ level:lvl, dust:dust });
-      }
-    }
-    return response;
-  };
-
-  // Get Pokemon by type
-  var byType = function(search) {
-    var result = [];
-    for (var x in godex.pokemon) {
-      var poke = godex.pokemon[x];
-      if (poke.type.indexOf(key(search)) > -1) {
-        result.push({
-          key: x,
-          name: poke.name
-        });
-      }
-    }
-    return result;
-  };
-
-  // Get a list of pokemon
-  var list = function(alpha) {
-    var result = [];
-    for (var x in godex.pokemon) {
-      result.push({
-        key: x,
-        name: godex.pokemon[x].name
-      });
-    }
-    if (alpha) {
-      result.sort(function(a,b) {
-        return a.name - b.name;
-      });
-    }
-    return result;
-  };
-
-  // Get a list of types
-  var listTypes = function(alpha) {
-    var result = [];
-    for (var x in godex.types) {
-      result.push({
-        key: x,
-        name: godex.types[x].name
-      });
-    }
-    if (alpha) {
-      result.sort(function(a,b) {
-        return a.name - b.name;
-      });
-    }
-    return result;
-  };
-
-  // Get a list of moves
-  var listMoves = function(alpha) {
-    var x, result = [];
-    for (x in godex.moves.quick) {
-      result.push({
-        key: x,
-        type: 'quick',
-        name: godex.moves.quick[x].name
-      });
-    }
-    for (x in godex.moves.charge) {
-      result.push({
-        key: x,
-        type: 'charge',
-        name: godex.moves.charge[x].name
-      });
-    }
-    if (alpha) {
-      result.sort(function(a,b) {
-        return a.name - b.name;
-      });
-    }
-    return result;
-  };
-
-  // Allow for a collection
-  // of pokemon, a "Gym"
-  var gym = function() {
-    this.list = {};
-    this.count = 0;
-  };
-
 
   // Appraise a pokemon
-  var appraise = function(poke, cp, hp, dust, powered, tAtk, tDef, tSta) {
-    var pokemon = get(poke);
-    if (!pokemon) return { error: "Pokemon Not Found" };
-    if (!cp) return { error: "CP not entered" };
-    if (!hp) return { error: "HP not entered" };
-    if (!dust) return { error: "Dust not entered" };
+  var appraise = function(options) {
+    options.pokemon = get(options.pokemon);
+    if (!options.pokemon) return { method: "appraise", err: "Poke Not Found" };
+    if (!options.cp) return { method: "appraise", err: "CP Not Entered" };
+    if (!options.hp) return { method: "appraise", err: "HP Not Entered" };
+    if (!options.dust) return { method: "appraise", err: "Dust Not Entered" };
 
-    var lvls = getLevels(dust);
-    if (!lvls.length) return { error: "Dust Invalid" };
+    options.levels = get("levels.dust", options.dust);
+    if (!options.levels.length) return { method: "appraise", err: "Dust Invalid" };
 
-    return godex.appraise({
-      levels: lvls,
-      pokemon: pokemon,
-      cp:cp, hp:hp, dust:dust, powered:powered,
-      atk: tAtk, def: tDef, sta: tSta
-    });
-  };
-
-  // Prototype for above collection
-  gym.prototype = {
-    // Add a pokemon to gym
-    add: function(search) {
-      var existing = this.list[key(search)];
-      if (existing) {
-        this.count += 1;
-        existing.count += 1;
-      } else {
-        var pokemon = get(search);
-        if (pokemon) {
-          this.list[key(search)] = pokemon;
-          this.count += 1;
-        }
-      }
-    },
-
-    // Remove a pokemon from gym
-    remove: function(search) {
-      var existing = this.list[key(search)];
-      if (existing) {
-        if (existing.count > 1) {
-          // if more than 1, just remove 1
-          existing.count -= 1;
-        } else {
-          delete this.list[key(search)];
-        }
-        this.count -= 1;
-      }
-    },
-
-    // Get the types in the gym
-    types: function() {
-      var x, result = [], types = {};
-      for (x in this.list) {
-        var pokemon = this.list[x];
-        for (var i = 0;i < pokemon.type.length;i++) {
-          // put it all in an object so we don't have multiples
-          var type = pokemon.type[i];
-          if (!types[type]) types[type] = pokemon.count;
-          else types[type] += pokemon.count;
-        }
-      }
-      // convert object to array
-      for (x in types) {
-        result.push({
-          name: x,
-          num: types[x]
-        });
-      }
-      return result;
-    },
-
-    // Get types not in the gym
-    unmodified: function() {
-      var result = [];
-      for (var t in godex.types) {
-        result.push(t);
-      }
-      // Build an array of ALL THE TYPES
-      // and then pull the types that are in the gym out of it!
-      for (var p in this.list) {
-        var pokemon = this.list[p];
-        for (var o in pokemon.offense) {
-          var _o = result.indexOf(o); // index of o
-          if (_o > -1) result.splice(_o, 1); // remove if exists
-        }
-        for (var d in pokemon.defense) {
-          var _d = result.indexOf(d); // index of d
-          if (_d > -1) result.splice(_d, 1); // remove if exists
-        }
-      }
-      return result;
-    },
-
-    // Combined offense of gym
-    offense: function(sort) {
-      var offense = {}, result = [];
-      for (var poke in this.list) {
-        var mon = this.list[poke];
-        for (var i = 0;i < mon.count;i++) {
-          for (var t in mon.offense) {
-            if (!offense[t]) offense[t] = this.count;
-            offense[t] += (mon.offense[t] - 1);
-          }
-        }
-      }
-      for (var type in offense) {
-        var score = rnd(offense[type] / this.count);
-        result.push({
-          name: type,
-          score: score
-        });
-      }
-      if (sort) {
-        result.sort(function(a,b) {
-          return a.score - b.score;
-        });
-      } else {
-        result.sort(function(a,b) {
-          return b.score - a.score;
-        });
-      }
-      return result;
-    },
-
-    // Combined offense of gym
-    defense: function(sort) {
-      var defense = {}, result = [];
-      for (var poke in this.list) {
-        var mon = this.list[poke];
-        for (var i = 0;i < mon.count;i++) {
-          for (var t in mon.defense) {
-            if (!defense[t]) defense[t] = this.count;
-            defense[t] += (mon.defense[t] - 1);
-          }
-        }
-      }
-      for (var type in defense) {
-        var score = rnd(defense[type] / this.count);
-        result.push({
-          name: type,
-          score: score
-        });
-      }
-      if (sort) {
-        result.sort(function(a,b) {
-          return b.score - a.score;
-        });
-      } else {
-        result.sort(function(a,b) {
-          return a.score - b.score;
-        });
-      }
-      return result;
-    }
+    return godex.appraise(options);
   };
 
   // define the Library
   var dex = {
     get: get,
-    getType: getType,
-    getMove: getMove,
-    getDust: getDust,
-    byType: byType,
-    list: list,
-    listTypes: listTypes,
-    listMoves: listMoves,
-    gym: gym,
+    gym: gymtool,
     appraise: appraise,
     aZ: [ "A","B","C","D","E","F","G","H","I","J","K",
         "L","M","N","O","P","R","S","T","V","W","Z" ]

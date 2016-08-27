@@ -32,13 +32,13 @@ space(1);
 note("------------TESTING DATA------------");
 space(1);
 
-var pokemon = dex.list(true);
+var pokemon = dex.get("pokemon", "list");
 note("# OF POKEMON: " + pokemon.length, pokemon);
 
-var types = dex.listTypes(true);
+var types = dex.get("types", "list");
 note("# OF POKEMON TYPES: " + types.length, types);
 
-var moves = dex.listMoves(true);
+var moves = dex.get("moves", "list");
 note("# OF POKEMON MOVES: " + moves.length, moves);
 
 space(2);
@@ -54,38 +54,35 @@ for (i in pokemon) {
 methodData = dex.get('Bulbasaur');
 note("METHOD: dex.get('Bulbasaur'): " + check(methodData), methodData);
 
+methodData = dex.get(1);
+note("METHOD: dex.get(1): " + check(methodData), methodData);
 
-note("VERIFYING: dex.getType()");
-for (i in types) {
-  methodData = dex.getType(i);
-}
-methodData = dex.getType('Bug');
-note("METHOD: dex.getType('Bug'): " + check(methodData), methodData);
+methodData = dex.get('Bulbasaur');
+note("METHOD: dex.get('Bulbasaur'): " + check(methodData), methodData);
 
+methodData = dex.get('type', 'bug');
+note("METHOD: dex.get('type', 'bug'): " + check(methodData), methodData);
 
-note("VERIFYING: dex.getMove()");
-for (i in moves) {
-  methodData = dex.getMove(i);
-}
-methodData = dex.getMove('Twister');
-note("METHOD: dex.getMove('Twister'): " + check(methodData), methodData);
+methodData = dex.get('move', 'Twister');
+note("METHOD: dex.get('move', 'Twister'): " + check(methodData), methodData);
 
-details = true;
-note("VERIFYING: dex.getDust()");
-methodData = dex.getDust();
-note("METHOD: dex.getDust(): " + check(methodData), methodData);
-details = false;
+methodData = dex.get('pokemon.type', 'bug');
+note("METHOD: dex.get('pokemon.type', 'bug'): " + check(methodData), methodData);
 
-note("VERIFYING: dex.byType()");
-for (i in types) {
-  methodData = dex.byType(i);
-}
-methodData = dex.byType('Bug');
-note("METHOD: dex.byType('Bug'): " + check(methodData), methodData);
+space(1);
 
 note("VERIFYING: dex.appraise()");
-methodData = dex.appraise('Aerodactyl', 1495, 113, 3500, true, false, true, false);
-note("METHOD: dex.appraise('Aerodactyl', 1495, 113, 3500, true, false, true, false): " + check(methodData), methodData);
+methodData = dex.appraise({
+  pokemon: 'Aerodactyl',
+  cp: 1495,
+  hp: 113,
+  dust: 3500,
+  powered: true,
+  strongAtk: false,
+  strongDef: true,
+  strongHP: false
+});
+note("METHOD: dex.appraise(): " + check(methodData), methodData);
 
 space(2);
 note("---------VERIFYING: POKEMON---------");
@@ -106,28 +103,19 @@ for (var _p in pokemon) {
   } else {
     // test types
     for (var _t in poke.types) {
-      var type = dex.getType(poke.types[_t]);
+      var type = dex.get("type", poke.types[_t]);
       if (!type) {
         if (!ePoke[key]) ePoke[key] = [];
         ePoke[key].push(poke.name + " Type Error: " + poke.types[_t]);
         isGood = false;
       }
     }
-    // test quick moves
-    for (var _q in poke.quickMoves) {
-      var quick = dex.getMove(poke.quickMoves[_q]);
+    // test moves
+    for (var _q in poke.moves) {
+      var quick = dex.get("move", poke.moves[_q]);
       if (!quick) {
         if (!ePoke[key]) ePoke[key] = [];
-        ePoke[key].push(poke.name + " Quick Move Error: " + poke.quickMoves[_q]);
-        isGood = false;
-      }
-    }
-    // test charge moves
-    for (var _c in poke.chargeMoves) {
-      var charge = dex.getMove(poke.chargeMoves[_c]);
-      if (!charge) {
-        if (!ePoke[key]) ePoke[key] = [];
-        ePoke[key].push(poke.name + " Charge Move Error: " + poke.chargeMoves[_c]);
+        ePoke[key].push(poke.name + " Move Error: " + poke.moves[_q]);
         isGood = false;
       }
     }
